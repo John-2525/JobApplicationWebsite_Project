@@ -4,14 +4,16 @@ using JobApplicationWebsite_Project.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JobApplicationWebsite_Project.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211218061947_addNameToUser")]
+    partial class addNameToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,221 +195,6 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Company", b =>
-                {
-                    b.Property<int>("CompanyID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("HRStaffID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("JobPostingID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PostingID")
-                        .HasColumnType("int");
-
-                    b.HasKey("CompanyID");
-
-                    b.HasIndex("JobPostingID");
-
-                    b.ToTable("company");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.IndividSkills", b =>
-                {
-                    b.Property<int>("IndividSkillsID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Mastery")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SkillName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("YearsofExperience")
-                        .HasColumnType("int");
-
-                    b.HasKey("IndividSkillsID");
-
-                    b.ToTable("IndividSkills");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.JobApplication", b =>
-                {
-                    b.Property<int>("JobApplicationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("JobPostingID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ResumeID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserResume")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("JobApplicationID");
-
-                    b.HasIndex("JobPostingID");
-
-                    b.HasIndex("ResumeID")
-                        .IsUnique();
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("JobApplications");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.JobPosting", b =>
-                {
-                    b.Property<int>("JobPostingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Benefits")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Duration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Position")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Salary")
-                        .HasColumnType("int");
-
-                    b.HasKey("JobPostingID");
-
-                    b.ToTable("JobPosting");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Resume", b =>
-                {
-                    b.Property<int>("ResumeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Certificates")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Education")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JobApplicationID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("School")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ResumeID");
-
-                    b.ToTable("Resume");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Review", b =>
-                {
-                    b.Property<int>("ReviewID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("JobPostingID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReviewComment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ReviewID");
-
-                    b.HasIndex("JobPostingID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Review");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.SkillSet", b =>
-                {
-                    b.Property<int>("SkillSetID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("IndividSkillsID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("JobPostingID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PostingID")
-                        .HasColumnType("int");
-
-                    b.HasKey("SkillSetID");
-
-                    b.HasIndex("IndividSkillsID");
-
-                    b.HasIndex("JobPostingID");
-
-                    b.ToTable("SkillSets");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.User", b =>
-                {
-                    b.Property<int>("UserID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserID");
-
-                    b.ToTable("User");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -543,78 +330,6 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Company", b =>
-                {
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.JobPosting", "JobPosting")
-                        .WithMany()
-                        .HasForeignKey("JobPostingID");
-
-                    b.Navigation("JobPosting");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.JobApplication", b =>
-                {
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.JobPosting", "JobPosting")
-                        .WithMany()
-                        .HasForeignKey("JobPostingID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.Resume", "Resume")
-                        .WithOne("JobApplication")
-                        .HasForeignKey("JobApplicationWebsite_Project.Shared.Domain.JobApplication", "ResumeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("JobPosting");
-
-                    b.Navigation("Resume");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Review", b =>
-                {
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.JobPosting", "JobPosting")
-                        .WithMany()
-                        .HasForeignKey("JobPostingID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("JobPosting");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.SkillSet", b =>
-                {
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.IndividSkills", "IndivSkills")
-                        .WithMany()
-                        .HasForeignKey("IndividSkillsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.JobPosting", "JobPosting")
-                        .WithMany()
-                        .HasForeignKey("JobPostingID");
-
-                    b.Navigation("IndivSkills");
-
-                    b.Navigation("JobPosting");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -664,11 +379,6 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Resume", b =>
-                {
-                    b.Navigation("JobApplication");
                 });
 #pragma warning restore 612, 618
         }

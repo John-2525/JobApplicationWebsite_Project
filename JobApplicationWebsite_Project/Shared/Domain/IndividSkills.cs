@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace JobApplicationWebsite_Project.Shared.Domain
 {
-    public class IndivSkills
+    public class IndividSkills
     {
-        public string IndivSkill { get; set; }
+        public int IndividSkillsID { get; set; }
 
         public string SkillName { get; set; }
-        public string YearsofExp { get; set; }
+
+        public int YearsofExperience { get; set; }
+
         public string Mastery { get; set; }
     }
 }

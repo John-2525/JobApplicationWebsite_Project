@@ -8,11 +8,14 @@ namespace JobApplicationWebsite_Project.Shared.Domain
 {
     public class SkillSet
     { 
-        public int SkillID { get; set; }
+        public int SkillSetID { get; set; }
 
         public int PostingID { get; set; }
 
-        public int IndivSkillsID { get; set; }
+        public virtual JobPosting JobPosting { get; set; }
 
+        public int IndividSkillsID { get; set; }
+
+        public virtual IndividSkills IndivSkills { get; set; }
     }
 }

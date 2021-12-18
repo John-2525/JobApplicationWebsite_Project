@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace JobApplicationWebsite_Project.Shared.Domain
 {
-    public class company
+    public class Company
     {
        
+        public int CompanyID{ get; set; }
+
         public string CompanyName { get; set; }
+
         public string Description { get; set; }
 
         public int PostingID { get; set; }
+
+        public virtual JobPosting JobPosting { get; set; }
 
         public int HRStaffID { get; set; }
     }

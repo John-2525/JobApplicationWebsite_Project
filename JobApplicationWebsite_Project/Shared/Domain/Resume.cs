@@ -13,11 +13,14 @@ namespace JobApplicationWebsite_Project.Shared.Domain
         public string Education { get; set; }
 
         public string School { get; set; }
+
         public string Certificates { get; set; }
 
         public string Description { get; set; }
 
-        public string SeekerID { get; set; }
+        public string JobApplicationID { get; set; }
+
+        public virtual JobApplication JobApplication { get; set; }
 
     }
 }
