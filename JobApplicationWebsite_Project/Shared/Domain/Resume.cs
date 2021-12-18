@@ -18,7 +18,7 @@ namespace JobApplicationWebsite_Project.Shared.Domain
 
         public string Description { get; set; }
 
-        public string JobApplicationID { get; set; }
+        public int JobApplicationID { get; set; }
 
         public virtual JobApplication JobApplication { get; set; }
 

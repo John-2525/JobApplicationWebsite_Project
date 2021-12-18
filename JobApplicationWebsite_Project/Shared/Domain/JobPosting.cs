@@ -10,7 +10,7 @@ namespace JobApplicationWebsite_Project.Shared.Domain
     {
         public int JobPostingID { get; set; }
 
-        public DateTime Duration { get; set; }
+        public int NumberOfYears { get; set; }
 
         public int Salary { get; set; }
 

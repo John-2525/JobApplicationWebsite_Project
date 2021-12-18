@@ -12,7 +12,30 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
     {
         public void Configure(EntityTypeBuilder<Company> builder)
         {
-            
+            builder.HasData(
+  new Company
+  {
+      CompanyID = 1,
+      CompanyName = "Wank waffles",
+      Description = "Wank sells the waffles",
+      PostingID = 1,
+      HRStaffID = 1,
+  },
+  new Company
+  {
+      CompanyID = 2,
+      CompanyName = "Ngiam computah shop",
+      Description = "Ngiam sells the computers",
+      PostingID = 2,
+      HRStaffID = 2,
+
+  });
+  
+
+            }
+
+
         }
     }
-}
+
+

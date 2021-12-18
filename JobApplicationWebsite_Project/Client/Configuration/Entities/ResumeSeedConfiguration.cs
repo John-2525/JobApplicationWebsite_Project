@@ -12,7 +12,34 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
     {
         public void Configure(EntityTypeBuilder<Resume> builder)
         {
+            builder.HasData(
+      new Resume
+      {
+          ResumeID = 1,
+          Education = "123 secondary school",
+          Certificates ="most handsome baker",
+          Description = "Resume",
+          JobApplicationID = 1,
           
+
+
+      },
+       new Resume
+       {
+           ResumeID = 2,
+           Education = "temasek polytechinc",
+           Certificates = "most handsum engineer",
+           Description = "assistant engineer",
+           JobApplicationID = 2,
+
+
+       }
+
+
+
+
+
+      );
         }
     }
 }

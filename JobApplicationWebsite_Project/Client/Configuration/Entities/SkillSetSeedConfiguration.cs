@@ -12,7 +12,26 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
     {
         public void Configure(EntityTypeBuilder<SkillSet> builder)
         {
+            builder.HasData(
+        new SkillSet
+        {
+            SkillSetID = 1,
+            PostingID = 1,
+            IndividSkillsID = 1,
           
+
+
+        },
+         new SkillSet
+         {
+             SkillSetID = 2,
+             PostingID = 2,
+             IndividSkillsID = 2,
+
+
+
+         });
+
         }
     }
 }

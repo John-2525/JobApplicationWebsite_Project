@@ -12,7 +12,30 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
     {
         public void Configure(EntityTypeBuilder<Review> builder)
         {
-            
+            builder.HasData(
+        new Review
+        {
+            ReviewID = 1,
+            ReviewComment = "too good at baking",
+            Rating = 3,
+            UserID = 1,
+            JobPostingID = 1,
+
+
+
+        },
+         new Review
+         {
+             ReviewID = 2,
+             ReviewComment = "too good at computer",
+             Rating = 4,
+             UserID = 1,
+             JobPostingID = 2,
+
+
+         });
+
+
         }
     }
 }

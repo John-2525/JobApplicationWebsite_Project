@@ -12,6 +12,21 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
     {
         public void Configure(EntityTypeBuilder<IndividSkills> builder)
         {
+            builder.HasData(
+            new IndividSkills
+            {
+                IndividSkillsID = 1,
+                SkillName = "baking",
+                YearsofExperience = 3,
+                Mastery = "novice"
+            },
+             new IndividSkills
+             {
+                 IndividSkillsID = 2,
+                 SkillName = "Fixing",
+                 YearsofExperience = 10,
+                 Mastery = "expert"
+             });
 
         }
     }
