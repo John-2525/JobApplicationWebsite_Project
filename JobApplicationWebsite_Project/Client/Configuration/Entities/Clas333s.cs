@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace JobApplicationWebsite_Project.Client.Configuration.Entities
 {
-    public class Class
+    public class Clas333s
     {
     }
 }
