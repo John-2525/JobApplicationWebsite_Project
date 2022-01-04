@@ -14,13 +14,13 @@ namespace CarRentalManagement.Server.Configurations.Entities
                 Name = "Administrator",
                 NormalizedName = "ADMINISTRATOR"
             },
- new IdentityRole
- {
-     Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
-     Name = "User",
-     NormalizedName = "USER"
- }
- );
+             new IdentityRole
+             {
+                 Id = "bd2bcf0c-20db-474f-8407-5a6b159518bb",
+                 Name = "User",
+                 NormalizedName = "USER"
+             }
+             );
         }
     }
 }
