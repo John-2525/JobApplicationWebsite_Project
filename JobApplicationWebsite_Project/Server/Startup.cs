@@ -1,5 +1,7 @@
 using JobApplicationWebsite_Project.Server.Data;
+using JobApplicationWebsite_Project.Server.IRespository;
 using JobApplicationWebsite_Project.Server.Models;
+using JobApplicationWebsite_Project.Server.Respository;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +28,8 @@ namespace JobApplicationWebsite_Project.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -40,6 +44,8 @@ namespace JobApplicationWebsite_Project.Server
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
