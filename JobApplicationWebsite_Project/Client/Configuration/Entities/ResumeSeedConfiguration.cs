@@ -19,7 +19,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
           Education = "123 secondary school",
           Certificates ="most handsome baker",
           Description = "Resume",
-          JobApplicationID = 1,
+          UserID = 1,
           
 
 
@@ -30,7 +30,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
            Education = "temasek polytechinc",
            Certificates = "most handsum engineer",
            Description = "assistant engineer",
-           JobApplicationID = 2,
+           UserID = 2,
 
 
        }

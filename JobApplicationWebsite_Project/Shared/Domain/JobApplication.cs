@@ -22,9 +22,7 @@ namespace JobApplicationWebsite_Project.Shared.Domain
 
         public virtual JobPosting JobPosting { get; set; }
 
-        public int ResumeID { get; set; }
-
-        public virtual Resume Resume { get; set; }
+    
 
 
 

@@ -20,7 +20,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                      Comment = "very good",
                      UserID = 1,
                      JobPostingID=1,
-                     ResumeID=1
+
 
                  },
                   new JobApplication
@@ -30,7 +30,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                       Comment = "very good",
                       UserID = 2,
                       JobPostingID = 2,
-                      ResumeID = 2
+
 
                   }
                 );

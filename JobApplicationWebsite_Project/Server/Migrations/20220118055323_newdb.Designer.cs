@@ -7,18 +7,18 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace JobApplicationWebsite_Project.Server.Data.Migrations
+namespace JobApplicationWebsite_Project.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211218104729_AddApplicationTables")]
-    partial class AddApplicationTables
+    [Migration("20220118055323_newdb")]
+    partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.12")
+                .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
@@ -222,6 +222,24 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.HasIndex("JobPostingID");
 
                     b.ToTable("company");
+
+                    b.HasData(
+                        new
+                        {
+                            CompanyID = 1,
+                            CompanyName = "Wank waffles",
+                            Description = "Wank sells the waffles",
+                            HRStaffID = 1,
+                            PostingID = 1
+                        },
+                        new
+                        {
+                            CompanyID = 2,
+                            CompanyName = "Ngiam computah shop",
+                            Description = "Ngiam sells the computers",
+                            HRStaffID = 2,
+                            PostingID = 2
+                        });
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.IndividSkills", b =>
@@ -243,6 +261,22 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.HasKey("IndividSkillsID");
 
                     b.ToTable("IndividSkills");
+
+                    b.HasData(
+                        new
+                        {
+                            IndividSkillsID = 1,
+                            Mastery = "novice",
+                            SkillName = "baking",
+                            YearsofExperience = 3
+                        },
+                        new
+                        {
+                            IndividSkillsID = 2,
+                            Mastery = "expert",
+                            SkillName = "Fixing",
+                            YearsofExperience = 10
+                        });
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.JobApplication", b =>
@@ -258,9 +292,6 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.Property<int>("JobPostingID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ResumeID")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
@@ -271,12 +302,27 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
 
                     b.HasIndex("JobPostingID");
 
-                    b.HasIndex("ResumeID")
-                        .IsUnique();
-
                     b.HasIndex("UserID");
 
                     b.ToTable("JobApplications");
+
+                    b.HasData(
+                        new
+                        {
+                            JobApplicationID = 1,
+                            Comment = "very good",
+                            JobPostingID = 1,
+                            UserID = 1,
+                            UserResume = "Very good at baking mr wank"
+                        },
+                        new
+                        {
+                            JobApplicationID = 2,
+                            Comment = "very good",
+                            JobPostingID = 2,
+                            UserID = 2,
+                            UserResume = "Very good at comptur mr ngiam"
+                        });
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.JobPosting", b =>
@@ -289,8 +335,8 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.Property<string>("Benefits")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Duration")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("NumberOfYears")
+                        .HasColumnType("int");
 
                     b.Property<string>("Position")
                         .HasColumnType("nvarchar(max)");
@@ -301,6 +347,24 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.HasKey("JobPostingID");
 
                     b.ToTable("JobPosting");
+
+                    b.HasData(
+                        new
+                        {
+                            JobPostingID = 1,
+                            Benefits = "paid toilet break every hour",
+                            NumberOfYears = 2,
+                            Position = "assistant baker",
+                            Salary = 3000
+                        },
+                        new
+                        {
+                            JobPostingID = 2,
+                            Benefits = "free drink every hour",
+                            NumberOfYears = 2,
+                            Position = "assistant engineer",
+                            Salary = 4000
+                        });
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Resume", b =>
@@ -319,15 +383,35 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.Property<string>("Education")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("JobApplicationID")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("School")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
                     b.HasKey("ResumeID");
 
+                    b.HasIndex("UserID");
+
                     b.ToTable("Resume");
+
+                    b.HasData(
+                        new
+                        {
+                            ResumeID = 1,
+                            Certificates = "most handsome baker",
+                            Description = "Resume",
+                            Education = "123 secondary school",
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ResumeID = 2,
+                            Certificates = "most handsum engineer",
+                            Description = "assistant engineer",
+                            Education = "temasek polytechinc",
+                            UserID = 2
+                        });
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Review", b =>
@@ -356,6 +440,24 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("Review");
+
+                    b.HasData(
+                        new
+                        {
+                            ReviewID = 1,
+                            JobPostingID = 1,
+                            Rating = 3,
+                            ReviewComment = "too good at baking",
+                            UserID = 1
+                        },
+                        new
+                        {
+                            ReviewID = 2,
+                            JobPostingID = 2,
+                            Rating = 4,
+                            ReviewComment = "too good at computer",
+                            UserID = 1
+                        });
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.SkillSet", b =>
@@ -381,6 +483,20 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.HasIndex("JobPostingID");
 
                     b.ToTable("SkillSets");
+
+                    b.HasData(
+                        new
+                        {
+                            SkillSetID = 1,
+                            IndividSkillsID = 1,
+                            PostingID = 1
+                        },
+                        new
+                        {
+                            SkillSetID = 2,
+                            IndividSkillsID = 2,
+                            PostingID = 2
+                        });
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.User", b =>
@@ -408,6 +524,26 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                     b.HasKey("UserID");
 
                     b.ToTable("User");
+
+                    b.HasData(
+                        new
+                        {
+                            UserID = 1,
+                            Address = "126@gmail.com",
+                            Age = 23,
+                            Name = "Lonk How Wank",
+                            Password = "Password1",
+                            Username = "username111"
+                        },
+                        new
+                        {
+                            UserID = 2,
+                            Address = "127@gmail.com",
+                            Age = 23,
+                            Name = "Ngiam Fabian",
+                            Password = "Password2",
+                            Username = "username222"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -562,12 +698,6 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.Resume", "Resume")
-                        .WithOne("JobApplication")
-                        .HasForeignKey("JobApplicationWebsite_Project.Shared.Domain.JobApplication", "ResumeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID")
@@ -576,7 +706,16 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
 
                     b.Navigation("JobPosting");
 
-                    b.Navigation("Resume");
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Resume", b =>
+                {
+                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -666,11 +805,6 @@ namespace JobApplicationWebsite_Project.Server.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Resume", b =>
-                {
-                    b.Navigation("JobApplication");
                 });
 #pragma warning restore 612, 618
         }
