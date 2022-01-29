@@ -1,0 +1,63 @@
+﻿@page "/indivskills/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+
+<h3 class="card-title">Car indivskillss</h3>
+@if (IndivSkills == null)
+{
+    <div class="alert alert-info"> Loading IndivSkills...</div>
+}
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th> Name</th>
+                <th> Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var indivskills in IndivSkills)
+            {
+                <tr>
+                    <td> @indivskills.SkillName </td>
+                    <td>
+                        <a href="/indivskillss/view/@indivskills" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/indivskillss/view/@indivskills" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(() => Delete(indivskills.Id))">
+
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+@code {
+    private List<IndividSkills> IndivSkills;
+    protected async override Task OnInitializedAsync()
+    {
+        IndivSkills = await _client.GetFromJsonAsync<List<IndividSkills>>($"{Endpoint.IndivSkillsEndpoint}");
+    }
+
+    async Task Delete(int indivskillsId)
+    {
+        var indivskills = IndivSkills.First(q => q.Id == indivskillsId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {indivskills.SkillName}? ");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoint.IndivSkillsEndpoint}/{indivskillsId}");
+            await OnInitializedAsync();
+        }
+    }
+
+}

@@ -1,0 +1,50 @@
+﻿@page "/reviews/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize] 
+
+if (Review == null)
+{
+ <div class=" alert alert-info">Loading reviews</div>
+}
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var review in Reviews)
+            {
+             <tr>
+                 <td> @review.Id</td>
+                 <td>
+                     <a href="/makes/view/@review.Id" class="btn btn-primary">
+
+                     </a>
+                 </td>
+             </tr>
+            }
+    </tbody>
+</table>
+
+@code {
+    private List<Review> Reviews;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Reviews = await _client.GetFromJsonAsync<List<Review>>($"{Endpoint.ReviewEndpoint}");
+    }
+    async Task Delete(int reviewID)
+    {
+        var review = Reviews.First(q => q.Id == reviewID);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {review.Id}");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoint.ReviewEndpoint}/{reviewID}");
+            await OnInitializedAsync();
+        }
+    }
+
+}

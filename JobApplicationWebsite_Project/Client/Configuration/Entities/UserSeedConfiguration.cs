@@ -14,7 +14,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
            new User
            {
-               UserID = 1,
+               Id=1,
                Name = "Lonk How Wank",
                Age = 23,
                Username = "username111",
@@ -26,7 +26,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
            },
             new User
             {
-                UserID = 2,
+                Id=2,
                 Name = "Ngiam Fabian",
                 Age = 23,
                 Username = "username222",

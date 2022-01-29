@@ -15,14 +15,14 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
             new IndividSkills
             {
-                IndividSkillsID = 1,
+                Id=1,
                 SkillName = "baking",
                 YearsofExperience = 3,
                 Mastery = "novice"
             },
              new IndividSkills
              {
-                 IndividSkillsID = 2,
+                 Id=2,
                  SkillName = "Fixing",
                  YearsofExperience = 10,
                  Mastery = "expert"

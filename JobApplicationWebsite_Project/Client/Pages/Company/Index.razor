@@ -1,0 +1,64 @@
+﻿@page "/companys/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+@using JobApplicationWebsite_Project.Shared.Domain;
+<h3 class="card-title"> companyss</h3>
+@if (Companys == null)
+{
+    <div class="alert alert-info"> Loading Companys...</div>
+}
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th> Name</th>
+                <th> Actions</th>
+               
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var companys in Companys)
+            {
+                <tr>
+                    <td> @companys.CompanyName</td>
+                    <td>
+                        <a href="/companyss/view/@companys.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/companyss/view/@companys.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(() => Delete(companys.Id))">
+
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+@code {
+    private List<Company> Companys;
+    protected async override Task OnInitializedAsync()
+    {
+        Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
+    }
+
+    async Task Delete(int companysId)
+    {
+        var companys = Companys.First(q => q.Id == companysId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {companys.CompanyName}? ");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoint.CompanyEndpoint}/{companysId}");
+            await OnInitializedAsync();
+        }
+    }
+
+}

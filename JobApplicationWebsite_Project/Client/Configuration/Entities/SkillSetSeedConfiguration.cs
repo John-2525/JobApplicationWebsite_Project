@@ -15,7 +15,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
         new SkillSet
         {
-            SkillSetID = 1,
+            Id=1,
             PostingID = 1,
             IndividSkillsID = 1,
           
@@ -24,7 +24,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
         },
          new SkillSet
          {
-             SkillSetID = 2,
+            Id=2,
              PostingID = 2,
              IndividSkillsID = 2,
 

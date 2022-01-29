@@ -15,7 +15,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
                  new JobApplication
                  {
-                     JobApplicationID = 1,
+                     Id=1,
                      UserResume = "Very good at baking mr wank",
                      Comment = "very good",
                      UserID = 1,
@@ -25,7 +25,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                  },
                   new JobApplication
                   {
-                      JobApplicationID = 2,
+                      Id=2,
                       UserResume = "Very good at comptur mr ngiam",
                       Comment = "very good",
                       UserID = 2,

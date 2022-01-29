@@ -1,6 +1,8 @@
-﻿namespace JobApplicationWebsite_Project.Shared.Domain
+﻿using CarRentalManagement.Shared;
+
+namespace JobApplicationWebsite_Project.Shared.Domain
 {
-    public class User
+    public class User :BaseDomainModel
     {
         public int UserID { get; set; }
 

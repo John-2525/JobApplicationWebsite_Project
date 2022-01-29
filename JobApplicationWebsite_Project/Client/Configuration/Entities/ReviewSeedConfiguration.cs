@@ -15,7 +15,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
         new Review
         {
-            ReviewID = 1,
+            Id=1,
             ReviewComment = "too good at baking",
             Rating = 3,
             UserID = 1,
@@ -26,7 +26,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
         },
          new Review
          {
-             ReviewID = 2,
+            Id=2,
              ReviewComment = "too good at computer",
              Rating = 4,
              UserID = 1,

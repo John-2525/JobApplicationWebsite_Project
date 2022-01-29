@@ -15,7 +15,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
                 new JobPosting
                 {
-                    JobPostingID = 1,
+                    Id=1,
                     NumberOfYears = 2,
                     Salary =3000,
                     Position = "assistant baker",
@@ -25,7 +25,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                 },
                  new JobPosting
                 {
-                    JobPostingID = 2,
+                    Id=2,
                     NumberOfYears = 2,
                     Salary =4000,
                     Position = "assistant engineer",

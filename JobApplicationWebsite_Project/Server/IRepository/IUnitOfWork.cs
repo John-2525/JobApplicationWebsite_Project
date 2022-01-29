@@ -10,16 +10,16 @@ namespace JobApplicationWebsite_Project.Server.IRespository
     public interface IUnitOfWork : IDisposable
     {
         Task Save(HttpContext httpContext);
-        IGenericRepository<Company> companies { get; }
-        IGenericRepository<IndividSkills> indivskills { get; }
-        IGenericRepository<JobApplication> jobapps { get; }
-        IGenericRepository<JobPosting> jobposts { get; }
-        IGenericRepository<Resume> resumes { get; }
-        IGenericRepository<Review> reviews { get; }
+        IGenericRepository<Company> Companies { get; }
+        IGenericRepository<IndividSkills> Indivskills { get; }
+        IGenericRepository<JobApplication> Jobapps { get; }
+        IGenericRepository<JobPosting> Jobposts { get; }
+        IGenericRepository<Resume> Resumes { get; }
+        IGenericRepository<Review> Reviews { get; }
 
-        IGenericRepository<SkillSet> skillsets { get; }
+        IGenericRepository<SkillSet> Skillsets { get; }
 
-        IGenericRepository<User> users { get; }
+        IGenericRepository<User> Users { get; }
 
     }
 }

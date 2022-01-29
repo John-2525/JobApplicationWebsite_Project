@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRentalManagement.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace JobApplicationWebsite_Project.Shared.Domain
 {
-    public class IndividSkills
+    public class IndividSkills:BaseDomainModel
     {
-        public int IndividSkillsID { get; set; }
+        
 
         public string SkillName { get; set; }
 

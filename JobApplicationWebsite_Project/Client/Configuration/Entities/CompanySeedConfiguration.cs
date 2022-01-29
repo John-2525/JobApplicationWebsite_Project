@@ -15,7 +15,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
   new Company
   {
-      CompanyID = 1,
+      Id=1,
       CompanyName = "Wank waffles",
       Description = "Wank sells the waffles",
       PostingID = 1,
@@ -23,7 +23,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
   },
   new Company
   {
-      CompanyID = 2,
+      Id = 2,
       CompanyName = "Ngiam computah shop",
       Description = "Ngiam sells the computers",
       PostingID = 2,

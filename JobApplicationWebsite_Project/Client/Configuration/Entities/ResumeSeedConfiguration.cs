@@ -15,7 +15,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             builder.HasData(
       new Resume
       {
-          ResumeID = 1,
+         Id=1,
           Education = "123 secondary school",
           Certificates ="most handsome baker",
           Description = "Resume",
@@ -26,7 +26,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
       },
        new Resume
        {
-           ResumeID = 2,
+          Id=2,
            Education = "temasek polytechinc",
            Certificates = "most handsum engineer",
            Description = "assistant engineer",

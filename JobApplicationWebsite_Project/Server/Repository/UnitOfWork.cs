@@ -36,23 +36,23 @@ namespace JobApplicationWebsite_Project.Server.Respository
             _userManager = userManager;
         }
 
-        public IGenericRepository<Company> companies
+        public IGenericRepository<Company> Companies
             => _companies ??= new GenericRepository<Company>(_context);
-        public IGenericRepository<IndividSkills> indivskills
+        public IGenericRepository<IndividSkills> Indivskills
             => _indivskills ??= new GenericRepository<IndividSkills>(_context);
-        public IGenericRepository<JobApplication> jobapps
+        public IGenericRepository<JobApplication> Jobapps
             => _jobapps ??= new GenericRepository<JobApplication>(_context);
-        public IGenericRepository<JobPosting> jobposts
+        public IGenericRepository<JobPosting> Jobposts
             => _jobposts ??= new GenericRepository<JobPosting>(_context);
-        public IGenericRepository<Resume> resumes
+        public IGenericRepository<Resume> Resumes
             => _resumes ??= new GenericRepository<Resume>(_context);
-        public IGenericRepository<Review> reviews
+        public IGenericRepository<Review> Reviews
             => _reviews ??= new GenericRepository<Review>(_context);
 
-        public IGenericRepository<SkillSet> skillsets
+        public IGenericRepository<SkillSet> Skillsets
             => _skillsetss ??= new GenericRepository<SkillSet>(_context);
 
-        public IGenericRepository<User> users
+        public IGenericRepository<User> Users
             => _users ??= new GenericRepository<User>(_context);
 
         public void Dispose()
@@ -64,22 +64,22 @@ namespace JobApplicationWebsite_Project.Server.Respository
         public async Task Save(HttpContext httpContext)
         {
             //To be implemented
-            string user = "System";
+            //string user = "System";
 
-            var entries = _context.ChangeTracker.Entries()
-                .Where(q => q.State == EntityState.Modified ||
-                    q.State == EntityState.Added);
+            //var entries = _context.ChangeTracker.Entries()
+            //    .Where(q => q.State == EntityState.Modified ||
+            //        q.State == EntityState.Added);
 
-            foreach (var entry in entries)
-            {
-                ((BaseDomainModel)entry.Entity).DateUpdated = DateTime.Now;
-                ((BaseDomainModel)entry.Entity).UpdatedBy = user;
-                if (entry.State == EntityState.Added)
-                {
-                    ((BaseDomainModel)entry.Entity).DateCreated = DateTime.Now;
-                    ((BaseDomainModel)entry.Entity).CreatedBy = user;
-                }
-            }
+            //foreach (var entry in entries)
+            //{
+            //    ((BaseDomainModel)entry.Entity).DateUpdated = DateTime.Now;
+            //    ((BaseDomainModel)entry.Entity).UpdatedBy = user;
+            //    if (entry.State == EntityState.Added)
+            //    {
+            //        ((BaseDomainModel)entry.Entity).DateCreated = DateTime.Now;
+            //        ((BaseDomainModel)entry.Entity).CreatedBy = user;
+            //    }
+            //}
 
             await _context.SaveChangesAsync();
         }
