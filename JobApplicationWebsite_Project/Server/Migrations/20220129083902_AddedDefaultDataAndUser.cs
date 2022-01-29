@@ -2,7 +2,7 @@
 
 namespace JobApplicationWebsite_Project.Server.Migrations
 {
-    public partial class AddedDefaultAndUser : Migration
+    public partial class AddedDefaultDataAndUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

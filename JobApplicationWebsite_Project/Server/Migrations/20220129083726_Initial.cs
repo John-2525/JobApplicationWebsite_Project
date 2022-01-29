@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JobApplicationWebsite_Project.Server.Migrations
 {
-    public partial class newdb : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -71,31 +71,39 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 name: "IndividSkills",
                 columns: table => new
                 {
-                    IndividSkillsID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SkillName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     YearsofExperience = table.Column<int>(type: "int", nullable: false),
-                    Mastery = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Mastery = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_IndividSkills", x => x.IndividSkillsID);
+                    table.PrimaryKey("PK_IndividSkills", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "JobPosting",
                 columns: table => new
                 {
-                    JobPostingID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumberOfYears = table.Column<int>(type: "int", nullable: false),
                     Salary = table.Column<int>(type: "int", nullable: false),
                     Position = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Benefits = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Benefits = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_JobPosting", x => x.JobPostingID);
+                    table.PrimaryKey("PK_JobPosting", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -122,17 +130,22 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    UserID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserID = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserID);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -245,22 +258,26 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 name: "company",
                 columns: table => new
                 {
-                    CompanyID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostingID = table.Column<int>(type: "int", nullable: false),
-                    JobPostingID = table.Column<int>(type: "int", nullable: true),
-                    HRStaffID = table.Column<int>(type: "int", nullable: false)
+                    PostingID = table.Column<int>(type: "int", nullable: true),
+                    JobPostingId = table.Column<int>(type: "int", nullable: true),
+                    HRStaffID = table.Column<int>(type: "int", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_company", x => x.CompanyID);
+                    table.PrimaryKey("PK_company", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_company_JobPosting_JobPostingID",
-                        column: x => x.JobPostingID,
+                        name: "FK_company_JobPosting_JobPostingId",
+                        column: x => x.JobPostingId,
                         principalTable: "JobPosting",
-                        principalColumn: "JobPostingID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -268,26 +285,30 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 name: "SkillSets",
                 columns: table => new
                 {
-                    SkillSetID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PostingID = table.Column<int>(type: "int", nullable: false),
-                    JobPostingID = table.Column<int>(type: "int", nullable: true),
-                    IndividSkillsID = table.Column<int>(type: "int", nullable: false)
+                    JobPostingId = table.Column<int>(type: "int", nullable: true),
+                    IndividSkillsID = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SkillSets", x => x.SkillSetID);
+                    table.PrimaryKey("PK_SkillSets", x => x.Id);
                     table.ForeignKey(
                         name: "FK_SkillSets_IndividSkills_IndividSkillsID",
                         column: x => x.IndividSkillsID,
                         principalTable: "IndividSkills",
-                        principalColumn: "IndividSkillsID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SkillSets_JobPosting_JobPostingID",
-                        column: x => x.JobPostingID,
+                        name: "FK_SkillSets_JobPosting_JobPostingId",
+                        column: x => x.JobPostingId,
                         principalTable: "JobPosting",
-                        principalColumn: "JobPostingID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -295,27 +316,31 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 name: "JobApplications",
                 columns: table => new
                 {
-                    JobApplicationID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserResume = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserID = table.Column<int>(type: "int", nullable: false),
-                    JobPostingID = table.Column<int>(type: "int", nullable: false)
+                    JobPostingID = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_JobApplications", x => x.JobApplicationID);
+                    table.PrimaryKey("PK_JobApplications", x => x.Id);
                     table.ForeignKey(
                         name: "FK_JobApplications_JobPosting_JobPostingID",
                         column: x => x.JobPostingID,
                         principalTable: "JobPosting",
-                        principalColumn: "JobPostingID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_JobApplications_User_UserID",
                         column: x => x.UserID,
                         principalTable: "User",
-                        principalColumn: "UserID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -323,22 +348,26 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 name: "Resume",
                 columns: table => new
                 {
-                    ResumeID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     School = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Certificates = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserID = table.Column<int>(type: "int", nullable: false)
+                    UserID = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Resume", x => x.ResumeID);
+                    table.PrimaryKey("PK_Resume", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Resume_User_UserID",
                         column: x => x.UserID,
                         principalTable: "User",
-                        principalColumn: "UserID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -346,100 +375,104 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 name: "Review",
                 columns: table => new
                 {
-                    ReviewID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ReviewComment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Rating = table.Column<int>(type: "int", nullable: false),
                     UserID = table.Column<int>(type: "int", nullable: false),
-                    JobPostingID = table.Column<int>(type: "int", nullable: false)
+                    JobPostingID = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Review", x => x.ReviewID);
+                    table.PrimaryKey("PK_Review", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Review_JobPosting_JobPostingID",
                         column: x => x.JobPostingID,
                         principalTable: "JobPosting",
-                        principalColumn: "JobPostingID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Review_User_UserID",
                         column: x => x.UserID,
                         principalTable: "User",
-                        principalColumn: "UserID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "IndividSkills",
-                columns: new[] { "IndividSkillsID", "Mastery", "SkillName", "YearsofExperience" },
+                columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Mastery", "SkillName", "UpdatedBy", "YearsofExperience" },
                 values: new object[,]
                 {
-                    { 1, "novice", "baking", 3 },
-                    { 2, "expert", "Fixing", 10 }
+                    { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "novice", "baking", null, 3 },
+                    { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "expert", "Fixing", null, 10 }
                 });
 
             migrationBuilder.InsertData(
                 table: "JobPosting",
-                columns: new[] { "JobPostingID", "Benefits", "NumberOfYears", "Position", "Salary" },
+                columns: new[] { "Id", "Benefits", "CreatedBy", "DateCreated", "DateUpdated", "NumberOfYears", "Position", "Salary", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "paid toilet break every hour", 2, "assistant baker", 3000 },
-                    { 2, "free drink every hour", 2, "assistant engineer", 4000 }
+                    { 1, "paid toilet break every hour", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "assistant baker", 3000, null },
+                    { 2, "free drink every hour", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "assistant engineer", 4000, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "UserID", "Address", "Age", "Name", "Password", "Username" },
+                columns: new[] { "Id", "Address", "Age", "CreatedBy", "DateCreated", "DateUpdated", "Name", "Password", "UpdatedBy", "UserID", "Username" },
                 values: new object[,]
                 {
-                    { 1, "126@gmail.com", 23, "Lonk How Wank", "Password1", "username111" },
-                    { 2, "127@gmail.com", 23, "Ngiam Fabian", "Password2", "username222" }
+                    { 1, "126@gmail.com", 23, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Lonk How Wank", "Password1", null, 0, "username111" },
+                    { 2, "127@gmail.com", 23, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ngiam Fabian", "Password2", null, 0, "username222" }
                 });
 
             migrationBuilder.InsertData(
                 table: "company",
-                columns: new[] { "CompanyID", "CompanyName", "Description", "HRStaffID", "JobPostingID", "PostingID" },
+                columns: new[] { "Id", "CompanyName", "CreatedBy", "DateCreated", "DateUpdated", "Description", "HRStaffID", "JobPostingId", "PostingID", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "Wank waffles", "Wank sells the waffles", 1, null, 1 },
-                    { 2, "Ngiam computah shop", "Ngiam sells the computers", 2, null, 2 }
+                    { 1, "Wank waffles", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Wank sells the waffles", 1, null, 1, null },
+                    { 2, "Ngiam computah shop", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ngiam sells the computers", 2, null, 2, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "JobApplications",
-                columns: new[] { "JobApplicationID", "Comment", "JobPostingID", "UserID", "UserResume" },
+                columns: new[] { "Id", "Comment", "CreatedBy", "DateCreated", "DateUpdated", "JobPostingID", "UpdatedBy", "UserID", "UserResume" },
                 values: new object[,]
                 {
-                    { 1, "very good", 1, 1, "Very good at baking mr wank" },
-                    { 2, "very good", 2, 2, "Very good at comptur mr ngiam" }
+                    { 1, "very good", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null, 1, "Very good at baking mr wank" },
+                    { 2, "very good", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 2, "Very good at comptur mr ngiam" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Resume",
-                columns: new[] { "ResumeID", "Certificates", "Description", "Education", "School", "UserID" },
+                columns: new[] { "Id", "Certificates", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Education", "School", "UpdatedBy", "UserID" },
                 values: new object[,]
                 {
-                    { 1, "most handsome baker", "Resume", "123 secondary school", null, 1 },
-                    { 2, "most handsum engineer", "assistant engineer", "temasek polytechinc", null, 2 }
+                    { 1, "most handsome baker", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Resume", "123 secondary school", null, null, 1 },
+                    { 2, "most handsum engineer", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "assistant engineer", "temasek polytechinc", null, null, 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Review",
-                columns: new[] { "ReviewID", "JobPostingID", "Rating", "ReviewComment", "UserID" },
+                columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "JobPostingID", "Rating", "ReviewComment", "UpdatedBy", "UserID" },
                 values: new object[,]
                 {
-                    { 1, 1, 3, "too good at baking", 1 },
-                    { 2, 2, 4, "too good at computer", 1 }
+                    { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 3, "too good at baking", null, 1 },
+                    { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, "too good at computer", null, 1 }
                 });
 
             migrationBuilder.InsertData(
                 table: "SkillSets",
-                columns: new[] { "SkillSetID", "IndividSkillsID", "JobPostingID", "PostingID" },
+                columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "IndividSkillsID", "JobPostingId", "PostingID", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, 1, null, 1 },
-                    { 2, 2, null, 2 }
+                    { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null, 1, null },
+                    { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 2, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -482,9 +515,9 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_company_JobPostingID",
+                name: "IX_company_JobPostingId",
                 table: "company",
-                column: "JobPostingID");
+                column: "JobPostingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DeviceCodes_DeviceCode",
@@ -543,9 +576,9 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 column: "IndividSkillsID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SkillSets_JobPostingID",
+                name: "IX_SkillSets_JobPostingId",
                 table: "SkillSets",
-                column: "JobPostingID");
+                column: "JobPostingId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

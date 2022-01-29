@@ -8,13 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using JobApplicationWebsite_Project.Server.Data;
 using JobApplicationWebsite_Project.Shared.Domain;
 using JobApplicationWebsite_Project.Server.IRespository;
-using JobApplicationWebsite_Project.Server.Respository;
-using Microsoft.AspNetCore.Authorization;
 
 namespace JobApplicationWebsite_Project.Server.Controllers
 {
     //[Authorize]
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     [ApiController]
 
 
@@ -29,15 +27,18 @@ namespace JobApplicationWebsite_Project.Server.Controllers
 
         // GET: api/JobPostings
         [HttpGet]
-
+        public async Task<IActionResult> GetJobPosting()
+        {
+            var JobPost = await _unitOfWork.Jobposts.GetAll();
+            return Ok(JobPost);
+        }
 
         // GET: api/JobPostings/5
         [HttpGet("{id}")]
+
         public async Task<IActionResult> GetJobPosting(int id)
         {
             var jobposting = await _unitOfWork.Jobposts.Get(q => q.Id == id);
-
-
 
             if (jobposting == null)
             {

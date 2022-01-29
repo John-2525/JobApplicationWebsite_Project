@@ -195,7 +195,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Company", b =>
                 {
-                    b.Property<int>("CompanyID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -203,37 +203,53 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("HRStaffID")
+                    b.Property<int?>("HRStaffID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("JobPostingID")
+                    b.Property<int?>("JobPostingId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PostingID")
+                    b.Property<int?>("PostingID")
                         .HasColumnType("int");
 
-                    b.HasKey("CompanyID");
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("JobPostingID");
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobPostingId");
 
                     b.ToTable("company");
 
                     b.HasData(
                         new
                         {
-                            CompanyID = 1,
+                            Id = 1,
                             CompanyName = "Wank waffles",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Wank sells the waffles",
                             HRStaffID = 1,
                             PostingID = 1
                         },
                         new
                         {
-                            CompanyID = 2,
+                            Id = 2,
                             CompanyName = "Ngiam computah shop",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ngiam sells the computers",
                             HRStaffID = 2,
                             PostingID = 2
@@ -242,10 +258,19 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.IndividSkills", b =>
                 {
-                    b.Property<int>("IndividSkillsID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Mastery")
                         .HasColumnType("nvarchar(max)");
@@ -253,24 +278,31 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("SkillName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("YearsofExperience")
                         .HasColumnType("int");
 
-                    b.HasKey("IndividSkillsID");
+                    b.HasKey("Id");
 
                     b.ToTable("IndividSkills");
 
                     b.HasData(
                         new
                         {
-                            IndividSkillsID = 1,
+                            Id = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Mastery = "novice",
                             SkillName = "baking",
                             YearsofExperience = 3
                         },
                         new
                         {
-                            IndividSkillsID = 2,
+                            Id = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Mastery = "expert",
                             SkillName = "Fixing",
                             YearsofExperience = 10
@@ -279,7 +311,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.JobApplication", b =>
                 {
-                    b.Property<int>("JobApplicationID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -287,8 +319,20 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("JobPostingID")
                         .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserID")
                         .HasColumnType("int");
@@ -296,7 +340,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("UserResume")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("JobApplicationID");
+                    b.HasKey("Id");
 
                     b.HasIndex("JobPostingID");
 
@@ -307,16 +351,20 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.HasData(
                         new
                         {
-                            JobApplicationID = 1,
+                            Id = 1,
                             Comment = "very good",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             JobPostingID = 1,
                             UserID = 1,
                             UserResume = "Very good at baking mr wank"
                         },
                         new
                         {
-                            JobApplicationID = 2,
+                            Id = 2,
                             Comment = "very good",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             JobPostingID = 2,
                             UserID = 2,
                             UserResume = "Very good at comptur mr ngiam"
@@ -325,13 +373,22 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.JobPosting", b =>
                 {
-                    b.Property<int>("JobPostingID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Benefits")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("NumberOfYears")
                         .HasColumnType("int");
@@ -342,23 +399,30 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<int>("Salary")
                         .HasColumnType("int");
 
-                    b.HasKey("JobPostingID");
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("JobPosting");
 
                     b.HasData(
                         new
                         {
-                            JobPostingID = 1,
+                            Id = 1,
                             Benefits = "paid toilet break every hour",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NumberOfYears = 2,
                             Position = "assistant baker",
                             Salary = 3000
                         },
                         new
                         {
-                            JobPostingID = 2,
+                            Id = 2,
                             Benefits = "free drink every hour",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NumberOfYears = 2,
                             Position = "assistant engineer",
                             Salary = 4000
@@ -367,13 +431,22 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Resume", b =>
                 {
-                    b.Property<int>("ResumeID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Certificates")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -384,10 +457,13 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("School")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.HasKey("ResumeID");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserID");
 
@@ -396,16 +472,20 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.HasData(
                         new
                         {
-                            ResumeID = 1,
+                            Id = 1,
                             Certificates = "most handsome baker",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Resume",
                             Education = "123 secondary school",
                             UserID = 1
                         },
                         new
                         {
-                            ResumeID = 2,
+                            Id = 2,
                             Certificates = "most handsum engineer",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "assistant engineer",
                             Education = "temasek polytechinc",
                             UserID = 2
@@ -414,10 +494,19 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Review", b =>
                 {
-                    b.Property<int>("ReviewID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("JobPostingID")
                         .HasColumnType("int");
@@ -428,10 +517,13 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("ReviewComment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.HasKey("ReviewID");
+                    b.HasKey("Id");
 
                     b.HasIndex("JobPostingID");
 
@@ -442,7 +534,9 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.HasData(
                         new
                         {
-                            ReviewID = 1,
+                            Id = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             JobPostingID = 1,
                             Rating = 3,
                             ReviewComment = "too good at baking",
@@ -450,7 +544,9 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         },
                         new
                         {
-                            ReviewID = 2,
+                            Id = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             JobPostingID = 2,
                             Rating = 4,
                             ReviewComment = "too good at computer",
@@ -460,38 +556,54 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.SkillSet", b =>
                 {
-                    b.Property<int>("SkillSetID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("IndividSkillsID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("JobPostingID")
+                    b.Property<int?>("JobPostingId")
                         .HasColumnType("int");
 
                     b.Property<int>("PostingID")
                         .HasColumnType("int");
 
-                    b.HasKey("SkillSetID");
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("IndividSkillsID");
 
-                    b.HasIndex("JobPostingID");
+                    b.HasIndex("JobPostingId");
 
                     b.ToTable("SkillSets");
 
                     b.HasData(
                         new
                         {
-                            SkillSetID = 1,
+                            Id = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IndividSkillsID = 1,
                             PostingID = 1
                         },
                         new
                         {
-                            SkillSetID = 2,
+                            Id = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IndividSkillsID = 2,
                             PostingID = 2
                         });
@@ -499,7 +611,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.User", b =>
                 {
-                    b.Property<int>("UserID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -510,36 +622,57 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserID");
+                    b.HasKey("Id");
 
                     b.ToTable("User");
 
                     b.HasData(
                         new
                         {
-                            UserID = 1,
+                            Id = 1,
                             Address = "126@gmail.com",
                             Age = 23,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Lonk How Wank",
                             Password = "Password1",
+                            UserID = 0,
                             Username = "username111"
                         },
                         new
                         {
-                            UserID = 2,
+                            Id = 2,
                             Address = "127@gmail.com",
                             Age = 23,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ngiam Fabian",
                             Password = "Password2",
+                            UserID = 0,
                             Username = "username222"
                         });
                 });
@@ -683,7 +816,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 {
                     b.HasOne("JobApplicationWebsite_Project.Shared.Domain.JobPosting", "JobPosting")
                         .WithMany()
-                        .HasForeignKey("JobPostingID");
+                        .HasForeignKey("JobPostingId");
 
                     b.Navigation("JobPosting");
                 });
@@ -747,7 +880,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
 
                     b.HasOne("JobApplicationWebsite_Project.Shared.Domain.JobPosting", "JobPosting")
                         .WithMany()
-                        .HasForeignKey("JobPostingID");
+                        .HasForeignKey("JobPostingId");
 
                     b.Navigation("IndivSkills");
 

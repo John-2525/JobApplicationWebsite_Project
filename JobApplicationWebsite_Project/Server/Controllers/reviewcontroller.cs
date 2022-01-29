@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace JobApplicationWebsite_Project.Server.Controllers
 {
     //[Authorize]
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     [ApiController]
 
 
@@ -29,10 +29,14 @@ namespace JobApplicationWebsite_Project.Server.Controllers
 
         // GET: api/Reviews
         [HttpGet]
+        public async Task<IActionResult> GetReview()
+        {
+            var review = await _unitOfWork.Reviews.GetAll();
+            return Ok(review);
+        }
 
-
-        // GET: api/Reviews/5
-        [HttpGet("{id}")]
+            // GET: api/Reviews/5
+            [HttpGet("{id}")]
         public async Task<IActionResult> GetReview(int id)
         {
             var review = await _unitOfWork.Reviews.Get(q => q.Id == id);

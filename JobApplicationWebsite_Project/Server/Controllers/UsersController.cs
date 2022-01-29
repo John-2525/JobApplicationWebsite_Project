@@ -108,8 +108,8 @@ namespace JobApplicationWebsite_Project.Server.Controllers
 
         private  async Task<bool> UserExists(int id)
         {
-            var make = await _unitOfWork.Users.Get(q => q.Id == id);
-            return make != null;
+            var user = await _unitOfWork.Users.Get(q => q.Id == id);
+            return user != null;
         }
     }
 }

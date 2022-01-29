@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace JobApplicationWebsite_Project.Server.Controllers
 {
     //[Authorize]
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     [ApiController]
 
 

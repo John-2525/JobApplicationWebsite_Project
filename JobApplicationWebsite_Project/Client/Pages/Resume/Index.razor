@@ -13,8 +13,13 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th> Name</th>
-                <th> Actions</th>
+                <th>Resume ID</th>
+                <th>User ID</th>
+                <th>School</th>
+                <th>Education Level</th>
+                <th>Certification</th>
+                <th>Description</th>
+                <th>Actions</th>
             </tr>
 
         </thead>
@@ -23,11 +28,16 @@ else
             {
                 <tr>
                     <td> @resumes.Id </td>
+                    <td>@resumes.UserID</td>
+                    <td>@resumes.School</td>
+                    <td>@resumes.Education</td>
+                    <td>@resumes.Certificates</td>
+                    <td>@resumes.Description</td>
                     <td>
-                        <a href="/resumess/view/@resumes" class="btn btn-primary">
+                        <a href="/resumes/view/@resumes" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
-                        <a href="/resumess/view/@resumes" class="btn btn-warning">
+                        <a href="/resumes/view/@resumes" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
                         <button class="btn btn-danger" @onclick="@(() => Delete(resumes.Id))">
