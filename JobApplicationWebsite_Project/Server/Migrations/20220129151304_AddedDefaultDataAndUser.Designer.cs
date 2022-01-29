@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobApplicationWebsite_Project.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220129083902_AddedDefaultDataAndUser")]
+    [Migration("20220129151304_AddedDefaultDataAndUser")]
     partial class AddedDefaultDataAndUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

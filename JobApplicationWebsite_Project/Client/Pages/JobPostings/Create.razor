@@ -1,7 +1,46 @@
-﻿@page "/jobposts/create/"
+﻿@page "/Jobpostings/create/"
 @inject HttpClient _client
 @inject NavigationManager _navManager
 <h3 class="card-title">Create New Jobposts</h3>
+
 <hr />
 <br />
+<EditForm Model="@jobpost" OnValidSubmit="CreateJobPosting">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
+    <div class="form-group">
+        <label> Id: </label>
+        <div>
+            <InputNumber @bind-Value="@jobpost.Id" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.Id)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label> No.of Years </label>
+        <div>
+            <InputNumber @bind-Value="@jobpost.NumberOfYears" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.NumberOfYears)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label> Salary </label>
+        <div>
+            <InputNumber @bind-Value="@jobpost.Salary" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.Salary)" />
+        </div>
+    </div>
+    
+</EditForm>
+
+@code{
+    JobPosting jobpost = new JobPosting();
+
+    protected async Task CreateJobPosting()
+    {
+        await _client.PostAsJsonAsync(Endpoint.JobPostingEndpoint, jobpost);
+        _navManager.NavigateTo("/jobposts/");
+
+    }
+}
