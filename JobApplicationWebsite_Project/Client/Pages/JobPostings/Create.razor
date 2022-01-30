@@ -5,39 +5,7 @@
 
 <hr />
 <br />
-<EditForm Model="@jobpost" OnValidSubmit="CreateJobPosting">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
-
-	<div class="form-group">
-		<label> No.of Years </label>
-		<div>
-			<InputNumber @bind-Value="@jobpost.NumberOfYears" class="form-control" />
-			<ValidationMessage For="@(()=>jobpost.NumberOfYears)" />
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label> Salary </label>
-		<div>
-			<InputNumber @bind-Value="@jobpost.Salary" class="form-control" />
-			<ValidationMessage For="@(()=>jobpost.Salary)" />
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label> Benefits </label>
-		<div>
-			<InputText @bind-Value="@jobpost.Benefits" class="form-control" />
-			<ValidationMessage For="@(()=>jobpost.Benefits)" />
-		</div>
-	</div>
-
-	<button type= "submit", class="btn btn-success btn-block">
-		Add New Job Posting
-	</button>
-
-</EditForm>
+<FormComponent ButtonText= "Create Job Positng" jobpost="jobpost" OnValidSubmit="@CreateJobPosting"/>
 
 @code{
     JobPosting jobpost = new JobPosting();

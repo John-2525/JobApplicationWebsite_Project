@@ -1,0 +1,20 @@
+﻿@page "/JobPostings/edit/{id:int}"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<h3> Edit JobPosting</h3>
+<FormComponent ButtonText="Update" OnValidSubmit="EditJobPost" jobpost="jobpost" />
+@code {
+	[Parameter] public int id { get; set; }
+	JobPosting jobpost = new JobPosting();
+
+	protected async override Task OnParametersSetAsync()
+	{
+		jobpost = await _client.GetFromJsonAsync<JobPosting>($"{Endpoint.JobPostingEndpoint}/{id}");
+	}
+	async Task EditJobPost()
+	{
+		await _client.PutAsJsonAsync($"{ Endpoint.JobPostingEndpoint}/{id}", jobpost);
+		_navManager.NavigateTo("/JobPostings/");
+	}
+}

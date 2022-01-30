@@ -3,7 +3,7 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 @using JobApplicationWebsite_Project.Shared.Domain;
-<h3 class="card-title">Car resumess</h3>
+<h3 class="card-title">Resume</h3>
 @if (Resumes == null)
 {
     <div class="alert alert-info"> Loading Resumes...</div>
@@ -27,7 +27,7 @@ else
             @foreach (var resumes in Resumes)
             {
                 <tr>
-                    <td> @resumes.Id </td>
+                    <td>@resumes.Id </td>
                     <td>@resumes.UserID</td>
                     <td>@resumes.School</td>
                     <td>@resumes.Education</td>
