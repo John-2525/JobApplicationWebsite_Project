@@ -1,1 +1,19 @@
-﻿
+﻿@page "/resumes/create/"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+<h3 class="card-title">Create New Resume</h3>
+
+<hr />
+<br />
+<FormComponent ButtonText ="Create Resume" resume="resume" OnValidSubmit="@CreateResume"/>
+
+@code{
+    Resume resume = new Resume();
+
+    protected async Task CreateResume()
+    {
+        await _client.PostAsJsonAsync(Endpoint.ResumeEndpoint, resume);
+        _navManager.NavigateTo("/resumes/");
+
+    }
+}

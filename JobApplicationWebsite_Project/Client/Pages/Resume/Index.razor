@@ -4,6 +4,12 @@
 @attribute [Authorize]
 @using JobApplicationWebsite_Project.Shared.Domain;
 <h3 class="card-title">Resume</h3>
+<a href="/resumes/Create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Job Posting
+</a>
+<br />
+<br />
 @if (Resumes == null)
 {
     <div class="alert alert-info"> Loading Resumes...</div>
