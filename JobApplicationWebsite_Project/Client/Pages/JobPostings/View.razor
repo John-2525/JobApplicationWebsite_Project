@@ -9,4 +9,5 @@
 	protected async override Task OnParametersSetAsync()
 	{
 		jobpost = await _client.GetFromJsonAsync<JobPosting>($"{Endpoint.JobPostingEndpoint}/{id}");
-	} }
+	} 
+	}

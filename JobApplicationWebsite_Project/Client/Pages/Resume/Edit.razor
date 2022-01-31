@@ -1,0 +1,20 @@
+﻿@page "/resumes/edit/{id:int}"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+<h3> Edit Resume</h3>
+
+<FormComponent ButtonText="Update" OnValidSubmit="EditResume" resume="resume" />
+@code {
+        [Parameter] public int id { get; set; }
+        Resume resume = new Resume();
+
+protected async override Task OnParametersSetAsync()
+    {
+        resume = await _client.GetFromJsonAsync<Resume>($"{Endpoint.ResumeEndpoint}/{id}");
+    }
+    async Task EditResume()
+    {
+        await _client.PutAsJsonAsync($"{ Endpoint.ResumeEndpoint}/{id}", resume);
+        _navManager.NavigateTo("/resumes/");
+    }
+}

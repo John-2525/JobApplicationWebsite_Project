@@ -40,10 +40,10 @@ else
                     <td>@resumes.Certificates</td>
                     <td>@resumes.Description</td>
                     <td>
-                        <a href="/resumes/view/@resumes" class="btn btn-primary">
+                        <a href="/resumes/view/@resumes.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
-                        <a href="/resumes/view/@resumes" class="btn btn-warning">
+                        <a href="/resumes/edit/@resumes.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
                         <button class="btn btn-danger" @onclick="@(() => Delete(resumes.Id))">

@@ -33,10 +33,10 @@ else
 				<tr>
 					<td> @companys.CompanyName</td>
 					<td>
-						<a href="/companyss/view/@companys.Id" class="btn btn-primary">
+						<a href="/companys/view/@companys.Id" class="btn btn-primary">
 							<span class="oi oi-book"></span>
 						</a>
-						<a href="/companyss/view/@companys.Id" class="btn btn-warning">
+						<a href="/companys/edit/@companys.Id" class="btn btn-warning">
 							<span class="oi oi-pencil"></span>
 						</a>
 						<button class="btn btn-danger" @onclick="@(() => Delete(companys.Id))">
