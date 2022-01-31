@@ -5,7 +5,7 @@
 
 <hr />
 <br />
-<@FormComponent ButtonText="Create Job Positng" company="company" OnValidSubmit="@CreateCompany" />
+<FormComponent ButtonText="register Company" company="company" OnValidSubmit="@CreateCompany"/>
 
 @code{
     Company company = new Company();
@@ -13,7 +13,7 @@
     protected async Task CreateCompany()
     {
         await _client.PostAsJsonAsync(Endpoint.CompanyEndpoint, company);
-        _navManager.NavigateTo("/Companys/");
+        _navManager.NavigateTo("/companys/");
 
     }
 }
