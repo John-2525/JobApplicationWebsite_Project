@@ -12,17 +12,21 @@ namespace JobApplicationWebsite_Project.Shared.Domain
     {
         
         [Required]
-        [Range(0.1,20, ErrorMessage = "Please Enter a Valid Employment Duration")]
+        [Range(1, 20, ErrorMessage = "Please Enter a Valid Employment Duration")]
+
         public int NumberOfYears { get; set; }
 
+        [Required]
+        [Range(1, 12, ErrorMessage = "Please Enter a Valid Employment Duration")]
+        public int NumberOfMonths { get; set; }
+
         public int Salary { get; set; }
+
         [Required]
         [StringLength(30, ErrorMessage = "Job Position Title is too long")]
         public string Position { get; set; }
 
         public string Benefits { get; set; }
-
-        public string Responsibility { get; set; }
 
     }
 }

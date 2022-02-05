@@ -21,8 +21,10 @@ else
 	<table class="table table-responsive">
 		<thead>
 			<tr>
-				<th> Name</th>
-				<th> Actions</th>
+				<th>Company Name</th>
+				<th>Company Descriptions</th>
+				<th>Company Posted Job's ID</th>
+				<th>Actions</th>
 
 			</tr>
 
@@ -32,6 +34,8 @@ else
 			{
 				<tr>
 					<td> @companys.CompanyName</td>
+					<td>@companys.Description</td>
+					<td>@companys.PostingID</td>
 					<td>
 						<a href="/companys/view/@companys.Id" class="btn btn-primary">
 							<span class="oi oi-book"></span>

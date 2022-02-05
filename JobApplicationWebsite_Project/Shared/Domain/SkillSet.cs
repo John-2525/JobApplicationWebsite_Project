@@ -9,8 +9,6 @@ namespace JobApplicationWebsite_Project.Shared.Domain
 {
     public class SkillSet: BaseDomainModel
     { 
-       
-
         public int PostingID { get; set; }
 
         public virtual JobPosting JobPosting { get; set; }

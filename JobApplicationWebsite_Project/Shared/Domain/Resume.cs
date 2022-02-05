@@ -19,9 +19,9 @@ namespace JobApplicationWebsite_Project.Shared.Domain
 
         public string Description { get; set; }
 
-        public int UserID { get; set; }
+        public string User_Name { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User UserName { get; set; }
 
     }
 }
