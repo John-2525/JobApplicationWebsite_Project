@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobApplicationWebsite_Project.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220129151304_AddedDefaultDataAndUser")]
-    partial class AddedDefaultDataAndUser
+    [Migration("20220205102000_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -239,22 +239,38 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         new
                         {
                             Id = 1,
-                            CompanyName = "Wank waffles",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Wank sells the waffles",
+                            CompanyName = "LGA TELECOM PTE LTD",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5326),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5335),
+                            Description = "As one of the industry’s digital pioneers, LGA has been helping shape Singapore’s digital ecosystem since 1995, starting first as a Digital Service Provider to now providing full digital solutions for businesses throughout Singapore.",
                             HRStaffID = 1,
-                            PostingID = 1
+                            PostingID = 1,
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            CompanyName = "Ngiam computah shop",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Ngiam sells the computers",
+                            CompanyName = "ALVAS FOOD MANUFACTURE PTE LTD",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5341),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5342),
+                            Description = "ALVAS FOOD MANUFACTURE PTE. LTD. is located in Singapore, Singapore and is part of the Dairy Product Manufacturing Industry. ALVAS FOOD MANUFACTURE PTE. LTD. has 8 total employees across all of its locations. (Employees figure is modelled).",
                             HRStaffID = 2,
-                            PostingID = 2
+                            PostingID = 2,
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyName = "ADECCO PERSONNEL PTE LTD",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5345),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5346),
+                            Description = "For more than 35 years, Adecco provides a comprehensive array of HR solutions and consulting services which includes mid to staff level talentacquisition, contract recruitment, outsourcing, field sales and marketing as well as payroll services.Our expertise includes accounting & finance, admin & secretarial, banking, digital & eCommerce. ",
+                            HRStaffID = 3,
+                            PostingID = 3,
+                            UpdatedBy = "System"
                         });
                 });
 
@@ -294,19 +310,23 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(251),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(260),
                             Mastery = "novice",
                             SkillName = "baking",
+                            UpdatedBy = "System",
                             YearsofExperience = 3
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(265),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(266),
                             Mastery = "expert",
                             SkillName = "Fixing",
+                            UpdatedBy = "System",
                             YearsofExperience = 10
                         });
                 });
@@ -336,17 +356,20 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserNameId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserResume")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User_Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("JobPostingID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserNameId");
 
                     b.ToTable("JobApplications");
 
@@ -355,21 +378,25 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         {
                             Id = 1,
                             Comment = "very good",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5621),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5630),
                             JobPostingID = 1,
-                            UserID = 1,
-                            UserResume = "Very good at baking mr wank"
+                            UpdatedBy = "System",
+                            UserResume = "",
+                            User_Name = "Luong Hao Wen"
                         },
                         new
                         {
                             Id = 2,
                             Comment = "very good",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5635),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5637),
                             JobPostingID = 2,
-                            UserID = 2,
-                            UserResume = "Very good at comptur mr ngiam"
+                            UpdatedBy = "System",
+                            UserResume = "Very good at comptur mr ngiam",
+                            User_Name = "Yew Yong Chank"
                         });
                 });
 
@@ -392,10 +419,16 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("NumberOfMonths")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumberOfYears")
                         .HasColumnType("int");
 
                     b.Property<string>("Position")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Responsiblity")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Salary")
@@ -412,22 +445,44 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         new
                         {
                             Id = 1,
-                            Benefits = "paid toilet break every hour",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Benefits = "Health Insurance , Paid time off , Life inusrance",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2603),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2612),
+                            NumberOfMonths = 3,
                             NumberOfYears = 2,
-                            Position = "assistant baker",
-                            Salary = 3000
+                            Position = "Digital Media Production Assistant",
+                            Responsiblity = "Assist with all social media department logistics such as platform scheduling, copywriting, content calendar reviews, and posting support.Assist with production of social content shoots  including being on - set for photo and video shoots supporting where necessary",
+                            Salary = 2500,
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            Benefits = "free drink every hour",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Benefits = "Mental Health Benfits , Flexible work arrangements",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2617),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2619),
+                            NumberOfMonths = 1,
                             NumberOfYears = 2,
-                            Position = "assistant engineer",
-                            Salary = 4000
+                            Position = "Office Administrator",
+                            Responsiblity = "Independently run the office space on a day-to-day basis to ensure smooth operations,Attend to incoming calls via the main phone line via a mobile application ,Liaise with appointed vendors and building management to perform regular routine office ",
+                            Salary = 2800,
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Benefits = "Paid time off",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2622),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2623),
+                            NumberOfMonths = 0,
+                            NumberOfYears = 3,
+                            Position = "Delivery Driver",
+                            Responsiblity = "Loading up and counting of stocks before going out for delivery and counting balance of stocks when deliveries are done, place balance of stocks back intofactory's chillers at the end of the day. Main delivery route will be to NTUC and Giant outlets.",
+                            Salary = 2600,
+                            UpdatedBy = "System"
                         });
                 });
 
@@ -462,12 +517,15 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
+
+                    b.Property<string>("User_Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Resume");
 
@@ -475,22 +533,35 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         new
                         {
                             Id = 1,
-                            Certificates = "most handsome baker",
+                            Certificates = "Profesional ceritication of professional Achievment in Digital Media",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Resume",
-                            Education = "123 secondary school",
-                            UserID = 1
+                            Description = "",
+                            Education = "Degree of  BSc Digital Media ",
+                            School = "Singapore of Social Science",
+                            User_Name = "Luong Hao Wen"
                         },
                         new
                         {
                             Id = 2,
-                            Certificates = "most handsum engineer",
+                            Certificates = "Food Hygiene certificate , MITx Manufacturing Program ",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "assistant engineer",
-                            Education = "temasek polytechinc",
-                            UserID = 2
+                            Description = "",
+                            Education = "Diploma in Food Science",
+                            School = "Singapore Polytechnic",
+                            User_Name = "Dai Koi Yim"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Certificates = "Certificate of High Achievment in 3D modelling",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "",
+                            Education = "Higher Nitec in Electronics",
+                            School = "ITE Central",
+                            User_Name = "Danial bin Sulfian"
                         });
                 });
 
@@ -522,14 +593,17 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserNameId")
                         .HasColumnType("int");
+
+                    b.Property<string>("User_Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("JobPostingID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserNameId");
 
                     b.ToTable("Review");
 
@@ -537,22 +611,26 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 24, DateTimeKind.Local).AddTicks(3282),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(6750),
                             JobPostingID = 1,
                             Rating = 3,
-                            ReviewComment = "too good at baking",
-                            UserID = 1
+                            ReviewComment = "As soon as COVID-19 was getting serious, Indeed was one of the first companies to implement a mandatory work-from-home policy. Our healthy and safety came first, and I felt so lucky our company had the opportunity to make that decision. Since the WFH policy, our CEO, COO, and SVP of HR have been INCREDIBLE with transparency, being here for us and communicating to us more than I've ever seen.",
+                            UpdatedBy = "System",
+                            User_Name = "Jim Jimson"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(8110),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(8118),
                             JobPostingID = 2,
                             Rating = 4,
-                            ReviewComment = "too good at computer",
-                            UserID = 1
+                            ReviewComment = "We have unlimited PTO, and we are encouraged to take it. 401K match up to 3%. Great healthcare plan. Our NYC office is beautiful with fully stocked drinks and snacks. There's a gym and multiple terraces.  We have company happy hours once a month and our holiday parties are OUTSTANDING. ",
+                            UpdatedBy = "System",
+                            User_Name = "Danial Bin Sulfian"
                         });
                 });
 
@@ -596,18 +674,22 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6873),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6883),
                             IndividSkillsID = 1,
-                            PostingID = 1
+                            PostingID = 1,
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6887),
+                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6888),
                             IndividSkillsID = 2,
-                            PostingID = 2
+                            PostingID = 2,
+                            UpdatedBy = "System"
                         });
                 });
 
@@ -642,10 +724,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Username")
+                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -662,8 +741,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Lonk How Wank",
                             Password = "Password1",
-                            UserID = 0,
-                            Username = "username111"
+                            UserName = "username111"
                         },
                         new
                         {
@@ -674,8 +752,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ngiam Fabian",
                             Password = "Password2",
-                            UserID = 0,
-                            Username = "username222"
+                            UserName = "username222"
                         });
                 });
 
@@ -831,24 +908,20 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "User")
+                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "UserName")
                         .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserNameId");
 
                     b.Navigation("JobPosting");
 
-                    b.Navigation("User");
+                    b.Navigation("UserName");
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.Resume", b =>
                 {
                     b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -861,15 +934,13 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "User")
+                    b.HasOne("JobApplicationWebsite_Project.Shared.Domain.User", "UserName")
                         .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserNameId");
 
                     b.Navigation("JobPosting");
 
-                    b.Navigation("User");
+                    b.Navigation("UserName");
                 });
 
             modelBuilder.Entity("JobApplicationWebsite_Project.Shared.Domain.SkillSet", b =>

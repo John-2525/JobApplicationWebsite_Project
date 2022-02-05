@@ -18,14 +18,22 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                 Id=1,
                 SkillName = "baking",
                 YearsofExperience = 3,
-                Mastery = "novice"
+                Mastery = "novice",
+                DateCreated = DateTime.Now,
+                DateUpdated = DateTime.Now,
+                CreatedBy = "System",
+                UpdatedBy = "System"
             },
              new IndividSkills
              {
                  Id=2,
                  SkillName = "Fixing",
                  YearsofExperience = 10,
-                 Mastery = "expert"
+                 Mastery = "expert",
+                 DateCreated = DateTime.Now,
+                 DateUpdated = DateTime.Now,
+                 CreatedBy = "System",
+                 UpdatedBy = "System"
              });
 
         }

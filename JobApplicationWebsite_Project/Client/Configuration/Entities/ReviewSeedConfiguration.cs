@@ -20,6 +20,10 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             Rating = 3,
             User_Name = "Jim Jimson",
             JobPostingID = 1,
+            DateCreated = DateTime.Now,
+            DateUpdated = DateTime.Now,
+            CreatedBy = "System",
+            UpdatedBy = "System"
 
 
 
@@ -31,6 +35,10 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
              Rating = 4,
              User_Name = "Danial Bin Sulfian",
              JobPostingID = 2,
+             DateCreated = DateTime.Now,
+             DateUpdated = DateTime.Now,
+             CreatedBy = "System",
+             UpdatedBy = "System"
 
 
          });

@@ -20,6 +20,10 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                      Comment = "very good",
                      User_Name="Luong Hao Wen",
                      JobPostingID=1,
+                     DateCreated = DateTime.Now,
+                     DateUpdated = DateTime.Now,
+                     CreatedBy = "System",
+                     UpdatedBy = "System"
 
 
 
@@ -31,6 +35,10 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                       Comment = "very good",
                       User_Name = "Yew Yong Chank",
                       JobPostingID = 2,
+                      DateCreated = DateTime.Now,
+                      DateUpdated = DateTime.Now,
+                      CreatedBy = "System",
+                      UpdatedBy = "System"
 
 
                   }

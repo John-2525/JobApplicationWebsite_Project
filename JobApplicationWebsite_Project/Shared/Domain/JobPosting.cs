@@ -22,8 +22,6 @@ namespace JobApplicationWebsite_Project.Shared.Domain
 
         public int Salary { get; set; }
 
-        [Required]
-        [StringLength(30, ErrorMessage = "Job Position Title is too long")]
         public string Position { get; set; }
 
         public string Benefits { get; set; }

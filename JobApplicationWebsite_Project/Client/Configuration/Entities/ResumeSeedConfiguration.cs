@@ -17,10 +17,10 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
       {
          Id=1,
          User_Name="Luong Hao Wen",
-          Education = "Degree of  BSc Digital Media ",
-          School= "Singapore of Social Science",
-          Certificates ="Profesional ceritication of professional Achievment in Digital Media",
-          Description = ""
+         Education = "Degree of  BSc Digital Media ",
+         School= "Singapore of Social Science",
+         Certificates ="Profesional ceritication of professional Achievment in Digital Media",
+         Description = ""
 
           
           ,

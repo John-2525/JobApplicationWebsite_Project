@@ -18,7 +18,11 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             Id=1,
             PostingID = 1,
             IndividSkillsID = 1,
-          
+            DateCreated = DateTime.Now,
+            DateUpdated = DateTime.Now,
+            CreatedBy = "System",
+            UpdatedBy = "System"
+
 
 
         },
@@ -27,6 +31,10 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
             Id=2,
              PostingID = 2,
              IndividSkillsID = 2,
+             DateCreated = DateTime.Now,
+             DateUpdated = DateTime.Now,
+             CreatedBy = "System",
+             UpdatedBy = "System"
 
 
 
