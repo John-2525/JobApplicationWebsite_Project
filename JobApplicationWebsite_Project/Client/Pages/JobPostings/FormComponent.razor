@@ -1,46 +1,53 @@
 ﻿<EditForm Model="@jobpost" OnValidSubmit="@OnValidSubmit">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
 
-	<div class="form-group">
-		<label> No.of Years </label>
-		<div>
-			<InputNumber @bind-Value="@jobpost.NumberOfYears" class="form-control" />
-			<ValidationMessage For="@(()=>jobpost.NumberOfYears)" />
-		</div>
-	</div>
+    <div class="form-group">
+        <label> No.of Years </label>
+        <div>
+            <InputNumber @bind-Value="@jobpost.NumberOfYears" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.NumberOfYears)" />
+        </div>
+    </div>
 
-	<div class="form-group">
-		<label> Salary </label>
-		<div>
-			<InputNumber @bind-Value="@jobpost.Salary" class="form-control" />
-			<ValidationMessage For="@(()=>jobpost.Salary)" />
-		</div>
-	</div>
-	<div class="form-group">
-		<label> Position </label>
-		<div>
-			<InputText @bind-Value="@jobpost.Position" class="form-control" />
-			<ValidationMessage For="@(()=>jobpost.Position)" />
-		</div>
-	</div>
-	<div class="form-group">
-		<label> Benefits </label>
-		<div>
-			<InputText @bind-Value="@jobpost.Benefits" class="form-control" />
-			<ValidationMessage For="@(()=>jobpost.Benefits)" />
-		</div>
-	</div>
+    <div class="form-group">
+        <label> Salary </label>
+        <div>
+            <InputNumber @bind-Value="@jobpost.Salary" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.Salary)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label> Position </label>
+        <div>
+            <InputText @bind-Value="@jobpost.Position" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.Position)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label> Benefits </label>
+        <div>
+            <InputText @bind-Value="@jobpost.Benefits" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.Benefits)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label> Benefits </label>
+        <div>
+            <InputNumber @bind-Value="@jobpost.NumberOfMonths" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.Benefits)" />
+        </div>
+    </div>
 
-	@if (!Disabled)
-	{
-		<button type="submit" class="btn btn-success btn-block">
-			@ButtonText
-		</button>
-	}
+    @if (!Disabled)
+    {
+        <button type="submit" class="btn btn-success btn-block">
+            @ButtonText
+        </button>
+    }
 
-	<BackToList Target="jobPost" />
+    <BackToList Target="jobPost" />
 </EditForm>
 
 @code {

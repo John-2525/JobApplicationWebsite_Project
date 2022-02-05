@@ -16,9 +16,9 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
         new Review
         {
             Id=1,
-            ReviewComment = "too good at baking",
+            ReviewComment = "As soon as COVID-19 was getting serious, Indeed was one of the first companies to implement a mandatory work-from-home policy. Our healthy and safety came first, and I felt so lucky our company had the opportunity to make that decision. Since the WFH policy, our CEO, COO, and SVP of HR have been INCREDIBLE with transparency, being here for us and communicating to us more than I've ever seen.",
             Rating = 3,
-            UserID = 1,
+            User_Name = "Jim Jimson",
             JobPostingID = 1,
 
 
@@ -27,9 +27,9 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
          new Review
          {
             Id=2,
-             ReviewComment = "too good at computer",
+             ReviewComment = "We have unlimited PTO, and we are encouraged to take it. 401K match up to 3%. Great healthcare plan. Our NYC office is beautiful with fully stocked drinks and snacks. There's a gym and multiple terraces.  We have company happy hours once a month and our holiday parties are OUTSTANDING. ",
              Rating = 4,
-             UserID = 1,
+             User_Name = "Danial Bin Sulfian",
              JobPostingID = 2,
 
 

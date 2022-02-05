@@ -17,7 +17,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                Id=1,
                Name = "Lonk How Wank",
                Age = 23,
-               Username = "username111",
+               UserName = "username111",
                Password = "Password1",
                Address="126@gmail.com"
 
@@ -29,7 +29,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                 Id=2,
                 Name = "Ngiam Fabian",
                 Age = 23,
-                Username = "username222",
+                UserName = "username222",
                 Password = "Password2",
                 Address = "127@gmail.com"
 

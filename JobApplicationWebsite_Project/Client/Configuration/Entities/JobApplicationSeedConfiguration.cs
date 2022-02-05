@@ -18,7 +18,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                      Id=1,
                      UserResume = "",
                      Comment = "very good",
-                     UserID = 1,
+                     User_Name="Luong Hao Wen",
                      JobPostingID=1,
 
 
@@ -29,7 +29,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                       Id=2,
                       UserResume = "Very good at comptur mr ngiam",
                       Comment = "very good",
-                      UserID = 2,
+                      User_Name = "Yew Yong Chank",
                       JobPostingID = 2,
 
 
