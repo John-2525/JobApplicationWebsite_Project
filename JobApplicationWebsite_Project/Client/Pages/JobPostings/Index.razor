@@ -1,80 +1,91 @@
 ﻿@page "/JobPostings/"
 @inject HttpClient _client
 @inject IJSRuntime js
+
+
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
+
 @attribute [Authorize]
 @using JobApplicationWebsite_Project.Shared.Domain;
 
 <h3 class="card-title">Job Search</h3>
 <br />
 <a href="/JobPostings/Create" class="btn btn-secondary">
-	<span class="oi oi-plus"></span>
-	Create New Job Posting
+    <span class="oi oi-plus"></span>
+    Create New Job Posting
 </a>
 <br />
 <br />
 
 @if (JobPostings == null)
 {
-	<div class="alert alert-info"> Loading Job Posts...</div>
+    <div class="alert alert-info"> Loading Job Posts...</div>
 }
 else
 {
-<table class="table table-responsive">
-	<thead>
-		<tr>
-			<th>Job Listing</th>
-			<th>Number Of Years</th>
-			<th>Salary</th>
-			<th>Position</th>
-			<th>Benefits</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var jobPost in JobPostings)
-		{
-		<tr>
-			<td>@jobPost.Id</td>
-			<td>@jobPost.NumberOfYears</td>
-			<td>@jobPost.Salary</td>
-			<td>@jobPost.Position</td>
-			<td>@jobPost.Benefits</td>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Job Listing</th>
+                <th>Number Of Years</th>
+                <th>Salary</th>
+                <th>Position</th>
+                <th>Benefits</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var jobPost in JobPostings)
+            {
+                <tr>
+                    <td>@jobPost.Id</td>
+                    <td>@jobPost.NumberOfYears</td>
+                    <td>@jobPost.Salary</td>
+                    <td>@jobPost.Position</td>
+                    <td>@jobPost.Benefits</td>
 
-			<td>
-				<a href="/JobPostings/view/@jobPost.Id" class="btn btn-primary">
-					<span class="oi oi-book"></span>
-				</a>
-				<a href="/JobPostings/edit/@jobPost.Id" class="btn btn-warning">
-					<span class="oi oi-pencil"></span>
-				</a>
-				<button class="btn btn-danger" @onclick="@(()=>Delete(jobPost.Id))">
-					<span class="oi oi-delete"></span>
-				</button>
-			</td>
-		</tr>
-		}
-	</tbody>
-</table>
+                    <td>
+                        <a href="/JobPostings/view/@jobPost.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/JobPostings/edit/@jobPost.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(jobPost.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 }
 
 @code {
-private List<JobPosting> JobPostings;
+    private List<JobPosting> JobPostings;
 
-protected async override Task OnInitializedAsync()
-{
-	JobPostings = await _client.GetFromJsonAsync<List<JobPosting>>($"{Endpoint.JobPostingEndpoint}");
-}
+    protected async override Task OnInitializedAsync()
+    {
+        _interceptor.MonitorEvent();
+        JobPostings = await _client.GetFromJsonAsync<List<JobPosting>>($"{Endpoint.JobPostingEndpoint}");
+    }
 
-async Task Delete(int jobpostingsId)
-{
-	var jobpostings = JobPostings.First(q => q.Id == jobpostingsId);
-	var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {jobpostings.Id}? ");
-	if (confirm)
-	{
-		await _client.DeleteAsync($"{Endpoint.JobPostingEndpoint}/{jobpostingsId}");
-		await OnInitializedAsync();
-	}
-}
+    async Task Delete(int jobpostingsId)
+    {
+        var jobpostings = JobPostings.First(q => q.Id == jobpostingsId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {jobpostings.Id}? ");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoint.JobPostingEndpoint}/{jobpostingsId}");
+            await OnInitializedAsync();
+        }
+    }
+
+    public void Dispose()
+    {
+        _interceptor.DisposeEvent();
+    }
 
 }

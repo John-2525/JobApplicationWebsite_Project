@@ -29,6 +29,7 @@ namespace JobApplicationWebsite_Project.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> GetJobPosting()
         {
+           
             var JobPost = await _unitOfWork.Jobposts.GetAll();
             return Ok(JobPost);
         }

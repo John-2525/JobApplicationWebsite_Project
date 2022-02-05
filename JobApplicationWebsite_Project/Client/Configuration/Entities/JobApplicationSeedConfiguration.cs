@@ -16,10 +16,11 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                  new JobApplication
                  {
                      Id=1,
-                     UserResume = "Very good at baking mr wank",
+                     UserResume = "",
                      Comment = "very good",
                      UserID = 1,
                      JobPostingID=1,
+
 
 
                  },
