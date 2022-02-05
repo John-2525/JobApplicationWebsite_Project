@@ -42,7 +42,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                      Salary =2600,
                      Position = "Delivery Driver",
                      Responsibility = "Loading up and counting of stocks before going out for delivery and counting balance of stocks when deliveries are done, place balance of stocks back intofactory's chillers at the end of the day. Main delivery route will be to NTUC and Giant outlets." ,
-                     Benefits = ""
+                     Benefits = "Paid time off"
                  }
 
 

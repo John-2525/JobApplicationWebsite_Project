@@ -28,5 +28,7 @@ namespace JobApplicationWebsite_Project.Shared.Domain
 
         public string Benefits { get; set; }
 
+        public string Responsiblity { get; set; }
+
     }
 }

@@ -16,10 +16,14 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
       new Resume
       {
          Id=1,
-          Education = "123 secondary school",
-          Certificates ="most handsome baker",
-          Description = "Resume",
-          UserID = 1,
+         User_Name="Luong Hao Wen",
+          Education = "Degree of  BSc Digital Media ",
+          School= "Singapore of Social Science",
+          Certificates ="Profesional ceritication of professional Achievment in Digital Media",
+          Description = ""
+
+          
+          ,
           
 
 
@@ -27,12 +31,23 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
        new Resume
        {
           Id=2,
-           Education = "temasek polytechinc",
-           Certificates = "most handsum engineer",
-           Description = "assistant engineer",
-           UserID = 2,
+           User_Name = "Dai Koi Yim",
+           Education = "Diploma in Food Science",
+           School = "Singapore Polytechnic",
+           Certificates = "Food Hygiene certificate , MITx Manufacturing Program ",
+           Description = ""
+           ,
 
 
+       },
+       new Resume
+       {
+           Id=3,
+           User_Name = "Danial bin Sulfian" , 
+           Education= "Higher Nitec in Electronics" , 
+           School = "ITE Central" ,
+           Certificates = "Certificate of High Achievment in 3D modelling" ,
+           Description = ""
        }
 
 
