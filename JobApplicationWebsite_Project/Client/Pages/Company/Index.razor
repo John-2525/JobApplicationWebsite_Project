@@ -2,6 +2,7 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@implements IDisposable
 
 
 <h3 class="card-title">Company</h3>
@@ -18,7 +19,7 @@
 }
 else
 {
-	<table class="table table-responsive">
+	<table class="table table-responsive" id="companyTable">
 		<thead>
 			<tr>
 				<th>Company Name</th>
@@ -56,21 +57,32 @@ else
 }
 
 @code {
-	private List<Company> Companys;
-	protected async override Task OnInitializedAsync()
-	{
-		Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
-	}
+    private List<Company> Companys;
+    protected async override Task OnInitializedAsync()
+    {
+        Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
+    }
 
-	async Task Delete(int companysId)
-	{
-		var companys = Companys.First(q => q.Id == companysId);
-		var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {companys.CompanyName}? ");
-		if (confirm)
-		{
-			await _client.DeleteAsync($"{Endpoint.CompanyEndpoint}/{companysId}");
-			await OnInitializedAsync();
-		}
-	}
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#companyTable");
+
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#companyTable");
+    }
+
+    async Task Delete(int companysId)
+    {
+        var companys = Companys.First(q => q.Id == companysId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {companys.CompanyName}? ");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoint.CompanyEndpoint}/{companysId}");
+            await OnInitializedAsync();
+        }
+    }
 
 }

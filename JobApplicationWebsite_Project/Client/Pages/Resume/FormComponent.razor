@@ -28,7 +28,7 @@
     <div class="form-group">
         <label> UserId </label>
         <div>
-            <InputNumber @bind-Value="@resume.User_Name" class="form-control" />
+            <InputText @bind-Value="@resume.User_Name" class="form-control" />
             <ValidationMessage For="@(()=>resume.User_Name)" />
         </div>
     </div>
