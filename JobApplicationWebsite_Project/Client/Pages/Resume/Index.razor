@@ -2,7 +2,6 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
-@implements IDisposable
 @using JobApplicationWebsite_Project.Shared.Domain;
 <h3 class="card-title">Resume</h3>
 <a href="/resumes/Create" class="btn btn-secondary">
@@ -17,7 +16,7 @@
 }
 else
 {
-    <table class="table table-responsive" id="resumeTable">
+    <table class="table table-responsive">
         <thead>
             <tr>
                 <th>Resume ID</th>
@@ -64,16 +63,6 @@ else
     protected async override Task OnInitializedAsync()
     {
         Resumes = await _client.GetFromJsonAsync<List<Resume>>($"{Endpoint.ResumeEndpoint}");
-    }
-    protected async override Task OnAfterRenderAsync(bool firstRender)
-    {
-        await js.InvokeVoidAsync("AddDataTable", "#resumeTable");
-
-    }
-
-    public void Dispose()
-    {
-        js.InvokeVoidAsync("DataTablesDispose", "#resumeTable");
     }
 
     async Task Delete(int resumesId)
