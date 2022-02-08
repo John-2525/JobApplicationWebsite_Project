@@ -20,12 +20,15 @@ namespace JobApplicationWebsite_Project.Shared.Domain
         [Range(1, 12, ErrorMessage = "Please Enter a Valid Employment Duration")]
         public int NumberOfMonths { get; set; }
 
+        [Required]
+        [Range(double.Epsilon,double.MaxValue, ErrorMessage = "Please Do Not Leave It Blank")]
         public int Salary { get; set; }
 
+        [Required]
         public string Position { get; set; }
-
+        [Required]
         public string Benefits { get; set; }
-
+        [Required]
         public string Responsiblity { get; set; }
 
     }

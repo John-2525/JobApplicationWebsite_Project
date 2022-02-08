@@ -47,7 +47,7 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
            Education= "Higher Nitec in Electronics" , 
            School = "ITE Central" ,
            Certificates = "Certificate of High Achievment in 3D modelling" ,
-           Description = ""
+           Description = "https://venngage-wordpress.s3.amazonaws.com/uploads/2020/02/Resume-Design-Template-2.png"
        }
 
 

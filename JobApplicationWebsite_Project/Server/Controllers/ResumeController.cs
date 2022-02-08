@@ -35,8 +35,10 @@ namespace JobApplicationWebsite_Project.Server.Controllers
             return Ok(resume);
         }
 
-            // GET: api/Resumes/5
+        // GET: api/Resumes/5
+
         [HttpGet("{id}")]
+
         public async Task<IActionResult> GetResume(int id)
         {
             var resume = await _unitOfWork.Resumes.Get(q => q.Id == id);
