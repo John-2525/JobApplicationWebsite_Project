@@ -32,7 +32,9 @@ else
 				<th>Salary</th>
 				<th>Position</th>
 				<th>Responsibilty</th>
-				<th>benefits</th>
+				<th>Benefits</th>
+				<th>Actions</th>
+				<th>Company Info</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -57,11 +59,11 @@ else
 						<button class="btn btn-danger" @onclick="@(()=>Delete(jobPost.Id))">
 							<span class="oi oi-delete"></span>
 						</button>
-						<a href="/companyinfo/"  class="btn btn-info">
-                            <span class="oi oi-info"></span>	
+					</td>
+					<td>
+						<a href="/companyinfo/@jobPost.Id" class="btn btn-info">
+							<span class="oi oi-info"></span>
 						</a>
-						
-						
 					</td>
 				</tr>
 			}

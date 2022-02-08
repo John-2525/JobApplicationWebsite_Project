@@ -1,10 +1,8 @@
-﻿@page "/companyinfo/"
+﻿@page "/companyinfo/{id:int}"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
 @inject HttpInterceptorService _interceptor
-
-
 
 
 @if (Companys == null)
@@ -26,16 +24,19 @@ else
             </tr>
 
         </thead>
-        <tbody>
-            @foreach (var companys in Companys)
-            {
-                <tr>
-                    <td>@companys.CompanyName</td>
-                    <td>@companys.Description</td>
-                    <td>@companys.PostingID</td>
-                </tr>
-            }
-        </tbody>
+		<tbody>
+			@foreach (var companys in Companys)
+			{
+				@if (companys.PostingID == id)
+				{
+					<tr>
+						<td>@companys.CompanyName</td>
+						<td>@companys.Description</td>
+						<td>@companys.PostingID</td>
+					</tr>
+				}
+			}
+		</tbody>
 
     </table>
 }
@@ -43,11 +44,12 @@ else
 
 
 @code {
-    private List<Company> Companys;
+	[Parameter] public int id { get; set; }
+	private List<Company> Companys;
 
-    protected async override Task OnInitializedAsync()
-    {
-        Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
-    }
+	protected async override Task OnInitializedAsync()
+	{
+		Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
+	}
 
 }
