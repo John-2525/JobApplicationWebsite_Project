@@ -59,6 +59,35 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
                      DateUpdated = DateTime.Now,
                      CreatedBy = "System",
                      UpdatedBy = "System"
+                 },
+                 new JobPosting
+                 {
+
+                     Id = 4,
+                     NumberOfYears = 2,
+                     NumberOfMonths = 4,
+                     Salary = 6000,
+                     Position = "Sales & Marketing Executive",
+                     Responsiblity = "Sales pitching, create awareness for prospect vie all possible avenue, Analysing of vehicle trends from all avenues, but not limited to, SGCM, personal social circle,Price monitoring/comparison from competitors and/or owners;",
+                     Benefits = "Paid time off",
+                     DateCreated = DateTime.Now,
+                     DateUpdated = DateTime.Now,
+                     CreatedBy = "System",
+                     UpdatedBy = "System"
+                 },
+
+                 new JobPosting
+                 {
+                     Id=5,
+                     NumberOfYears =3,
+                     NumberOfMonths=0,
+                     Salary=3500,
+                     Position= "Accounts​/Senior Accounts Executive",
+                     Responsiblity= "prepare the statement of accounts, balance sheet, reconciliations, preparing and posting of month end journals, processing payments and working closely with both internal and external stakeholders on accounting, reconciliation and treasury related matters.",
+                     Benefits= "Health insurance.",
+                     DateUpdated = DateTime.Now,
+                     DateCreated= DateTime.Now
+
                  }
 
 

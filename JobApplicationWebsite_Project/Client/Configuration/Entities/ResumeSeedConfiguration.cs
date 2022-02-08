@@ -20,11 +20,11 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
          Education = "Degree of  BSc Digital Media ",
          School= "Singapore of Social Science",
          Certificates ="Profesional ceritication of professional Achievment in Digital Media",
-         Description = ""
+         Description = "https://resumegenius.com/wp-content/uploads/2019/07/Hostess-Resume-Sample-Template.png "
 
-          
-          ,
-          
+
+
+
 
 
       },
@@ -35,8 +35,8 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
            Education = "Diploma in Food Science",
            School = "Singapore Polytechnic",
            Certificates = "Food Hygiene certificate , MITx Manufacturing Program ",
-           Description = ""
-           ,
+           Description = "https://196034-584727-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2018/01/Electrician-Resume-723x1024.jpg"
+
 
 
        },

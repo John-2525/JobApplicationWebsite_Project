@@ -52,7 +52,48 @@ namespace JobApplicationWebsite_Project.Client.Configuration.Entities
 
 
 
-  });
+  },
+  new Company
+  {
+      Id=4,
+      CompanyName= "Popular Holdings",
+      Description = "Popular Holdings Limited, more commonly known as just Popular or colloquially as the Popular Bookstore, is a Singaporean multinational bookstore chain. Aside from Singapore, it also has subsidiaries in countries such as Canada, China, Malaysia and the United Kingdom.",
+      PostingID = 4,
+      HRStaffID = 4,
+      DateCreated = DateTime.Now,
+      DateUpdated = DateTime.Now,
+      CreatedBy = "System",
+      UpdatedBy = "System"
+  },
+
+  new Company
+  {
+      Id=5,
+      CompanyName = "Spotify",
+      Description = "Spotify is a Swedish audio streaming and media services provider founded on 23 April 2006 by Daniel Ek and Martin Lorentzon. It is one of the largest music streaming service providers with over 406 million monthly active users, including 180 million paying subscribers, as of December 2021",
+      PostingID = 5,
+      HRStaffID = 5,
+      DateCreated = DateTime.Now,
+      DateUpdated = DateTime.Now,
+      CreatedBy = "System",
+      UpdatedBy = "System"
+
+  },
+  new Company
+  {
+      Id = 6 ,
+      CompanyName = "Daiso",
+      Description = "Daiso Industries Co., Ltd. is a large franchise of 100-yen shops founded in Japan. The headquarters are in Higashihiroshima, Hiroshima Prefecture. Daiso has a range of over 100,000 products, of which over 40 percent are imported goods, many of them from China, South Korea, and Japan.",
+      PostingID = 6,
+      HRStaffID = 6,
+      DateCreated = DateTime.Now,
+      DateUpdated = DateTime.Now,
+      CreatedBy = "System",
+      UpdatedBy = "System"
+
+  }
+
+  );
         }
     
 
