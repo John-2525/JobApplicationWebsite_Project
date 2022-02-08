@@ -1,58 +1,59 @@
 ﻿@page "/reviews/"
 @inject HttpClient _client
 @inject IJSRuntime js
-@attribute [Authorize] 
+@attribute [Authorize]
 @implements IDisposable
+@inject HttpInterceptorService _interceptor
 
 <h3 class="card-title">Job Review</h3>
 <br />
 <a href="/reviews/Create" class="btn btn-secondary">
-	<span class="oi oi-plus"></span>
-	Create New Review
+    <span class="oi oi-plus"></span>
+    Create New Review
 </a>
 <br />
 <br />
 
 @if (Reviews == null)
 {
- <div class=" alert alert-info">Loading reviews</div>
+    <div class=" alert alert-info">Loading reviews</div>
 }
-else 
-{ <table class="table table-responsive" >
-	<thead>
-		<tr>
-			<th>Review ID</th>
-			<th>Comment</th>
-			<th>Rating</th>
-			<th>User Name</th>
-			<th>Job Postings ID</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var review in Reviews)
-		{
-			<tr>
-				<td>@review.Id</td>
-				<td>@review.ReviewComment</td>
-				<td>@review.Rating</td>
-				<td>@review.User_Name</td>
-				<td>@review.JobPostingID</td>
-				<td>
-					<a href="/Reviews/view/@review.Id" class="btn btn-primary">
-						<span class="oi oi-book"></span>
-					</a>
-					<a href="/Reviews/edit/@review.Id" class="btn btn-warning">
-						<span class="oi oi-pencil"></span>
-					</a>
-					<button class="btn btn-danger" @onclick="@(()=>Delete(review.Id))">
-						<span class="oi oi-delete"></span>
-					</button>
-				</td>
-			</tr>
-		}
-	</tbody>
-</table>
+else
+{ <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Review ID</th>
+                <th>Comment</th>
+                <th>Rating</th>
+                <th>User Name</th>
+                <th>Job Postings ID</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var review in Reviews)
+            {
+                <tr>
+                    <td>@review.Id</td>
+                    <td>@review.ReviewComment</td>
+                    <td>@review.Rating</td>
+                    <td>@review.User_Name</td>
+                    <td>@review.JobPostingID</td>
+                    <td>
+                        <a href="/Reviews/view/@review.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/Reviews/edit/@review.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(review.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
 

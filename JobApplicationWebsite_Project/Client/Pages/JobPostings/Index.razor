@@ -9,8 +9,8 @@
 <h3 class="card-title">Job Search</h3>
 <br />
 <a href="/JobPostings/Create" class="btn btn-secondary">
-	<span class="oi oi-plus"></span>
-	Create New Job Posting
+    <span class="oi oi-plus"></span>
+    Create New Job Posting
 </a>
 
 
@@ -19,69 +19,69 @@
 
 @if (JobPostings == null)
 {
-	<div class="alert alert-info"> Loading Job Posts...</div>
+    <div class="alert alert-info"> Loading Job Posts...</div>
 }
 else
 {
-	<table class="table table-responsive">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Number Of Years</th>
-				<th>Number Of Months</th>
-				<th>Salary</th>
-				<th>Position</th>
-				<th>Responsibilty</th>
-				<th>Benefits</th>
-				<th>Actions</th>
-				<th>Company Info</th>
-				<th>Review Info</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var jobPost in JobPostings ) 
-			{
-			<tr>
-				<td>@jobPost.Id</td>
-				<td>@jobPost.NumberOfYears</td>
-				<td>@jobPost.NumberOfMonths</td>
-				<td>@jobPost.Salary</td>
-				<td>@jobPost.Position</td>
-				<td>@jobPost.Responsiblity</td>
-				<td>@jobPost.Benefits</td>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Number Of Years</th>
+                <th>Number Of Months</th>
+                <th>Salary</th>
+                <th>Position</th>
+                <th>Responsibilty</th>
+                <th>Benefits</th>
+                <th>Actions</th>
+                <th>Company Info</th>
+                <th>Review Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var jobPost in JobPostings)
+            {
+                <tr>
+                    <td>@jobPost.Id</td>
+                    <td>@jobPost.NumberOfYears</td>
+                    <td>@jobPost.NumberOfMonths</td>
+                    <td>@jobPost.Salary</td>
+                    <td>@jobPost.Position</td>
+                    <td>@jobPost.Responsiblity</td>
+                    <td>@jobPost.Benefits</td>
 
-				<td>
-					<a href="/JobPostings/view/@jobPost.Id" class="btn btn-primary">
-						<span class="oi oi-book"></span>
-					</a>
-					<a href="/JobPostings/edit/@jobPost.Id" class="btn btn-warning">
-						<span class="oi oi-pencil"></span>
-					</a>
-					<button class="btn btn-danger" @onclick="@(()=>Delete(jobPost.Id))">
-						<span class="oi oi-delete"></span>
-					</button>
-				</td>
-				<td>
-					<a href="/Companyinfo/@jobPost.Id" class="btn btn-info">
-						<span class="oi oi-info"></span>
-					</a>
-				</td>
-				<td>
-					<a href="/Reviewinfo/@jobPost.Id" class="btn btn-info">
-						<span class="oi oi-info"></span>
-					</a>
-				</td>
-			</tr>
-			}
-		</tbody>
-	</table>
+                    <td>
+                        <a href="/JobPostings/view/@jobPost.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/JobPostings/edit/@jobPost.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(jobPost.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <a href="/Companyinfo/@jobPost.Id" class="btn btn-info">
+                            <span class="oi oi-info"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/Reviewinfo/@jobPost.Id" class="btn btn-info">
+                            <span class="oi oi-info"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 }
 
 @code {
     private List<JobPosting> JobPostings;
 
-	private List<Company> Companies;
+    private List<Company> Companies;
 
     protected async override Task OnInitializedAsync()
     {
@@ -97,8 +97,9 @@ else
 
     public void Dispose()
     {
+        _interceptor.DisposeEvent();
         js.InvokeVoidAsync("DataTablesDispose", "#JPtable");
-        
+
     }
 
 
@@ -113,5 +114,5 @@ else
         }
     }
 
-    
+
 }

@@ -31,6 +31,7 @@ namespace JobApplicationWebsite_Project.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<Company>> GetCompany()
         {
+           
             var companies = await _unitOfWork.Companies.GetAll();
 
             return Ok(companies);

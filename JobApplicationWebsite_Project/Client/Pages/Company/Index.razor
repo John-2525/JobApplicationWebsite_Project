@@ -3,13 +3,15 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 @implements IDisposable
+@inject HttpInterceptorService _interceptor
+
 
 
 <h3 class="card-title">Company</h3>
 <br />
 <a href="/companys/create/" class="btn btn-secondary">
-	<span class="oi oi-plus"></span>
-	Add New Company
+    <span class="oi oi-plus"></span>
+    Add New Company
 </a>
 
 
@@ -17,79 +19,81 @@
 <br />
 @if (Companys == null)
 {
-	<div class="alert alert-info"> Loading Companys...</div>
+    <div class="alert alert-info"> Loading Companys...</div>
 }
 else
 {
-	<table class="table table-responsive" id="companyTable">
-		<thead>
-			<tr>
-               
-				<th>Company Name</th>
-				<th>Company Descriptions</th>
-				<th>Company Posted Job's ID</th>
-				<th></th>
-			
+    <table class="table table-responsive" id="companyTable">
+        <thead>
+            <tr>
 
-			</tr>
+                <th>Company Name</th>
+                <th>Company Descriptions</th>
+                <th>Company Posted Job's ID</th>
+                <th></th>
 
-		</thead>
-		<tbody>
-			@foreach (var companys in Companys)
-			{
-				<tr>
-					<td>@companys.CompanyName</td>
-					<td>@companys.Description</td>
-					<td>@companys.PostingID</td>
-					<td>
-						<a href="/companys/view/@companys.Id" class="btn btn-primary">
-							<span class="oi oi-book"></span>
-						</a>
-						<a href="/companys/edit/@companys.Id" class="btn btn-warning">
-							<span class="oi oi-pencil"></span>
-						</a>
-						<button class="btn btn-danger" @onclick="@(() => Delete(companys.Id))">
 
-							<span class="oi oi-delete"></span>
-						</button>
-					</td>
-				</tr>
-			}
-		</tbody>
+            </tr>
 
-	</table>
+        </thead>
+        <tbody>
+            @foreach (var companys in Companys)
+            {
+                <tr>
+                    <td>@companys.CompanyName</td>
+                    <td>@companys.Description</td>
+                    <td>@companys.PostingID</td>
+                    <td>
+                        <a href="/companys/view/@companys.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/companys/edit/@companys.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(() => Delete(companys.Id))">
+
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
 }
 
 @code {
-	private List<Company> Companys;
+    private List<Company> Companys;
 
-	protected async override Task OnInitializedAsync()
-	{
-		Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
-	}
+    protected async override Task OnInitializedAsync()
+    {
+        _interceptor.MonitorEvent();
+        Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
+    }
 
 
-	async Task Delete(int companysId)
-	{
-		var companys = Companys.First(q => q.Id == companysId);
-		var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {companys.CompanyName}? ");
-		if (confirm)
-		{
-			await _client.DeleteAsync($"{Endpoint.CompanyEndpoint}/{companysId}");
-			await OnInitializedAsync();
-		}
-	}
+    async Task Delete(int companysId)
+    {
+        var companys = Companys.First(q => q.Id == companysId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {companys.CompanyName}? ");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoint.CompanyEndpoint}/{companysId}");
+            await OnInitializedAsync();
+        }
+    }
 
-	protected async override Task OnAfterRenderAsync(bool firstrender)
-	{
+    protected async override Task OnAfterRenderAsync(bool firstrender)
+    {
 
-		await js.InvokeVoidAsync("AddDataTable", "#companyTable");
+        await js.InvokeVoidAsync("AddDataTable", "#companyTable");
 
-	}
+    }
 
-	public void Dispose()
-	{
-		js.InvokeVoidAsync("DataTablesDispose", "#companyTable");
-	}
+    public void Dispose()
+    {
+        _interceptor.DisposeEvent();
+        js.InvokeVoidAsync("DataTablesDispose", "#companyTable");
+    }
 
 }
