@@ -12,6 +12,14 @@
     </div>
 
     <div class="form-group">
+        <label> Number of months</label>
+        <div>
+            <InputNumber @bind-Value="@jobpost.NumberOfMonths" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.NumberOfMonths)" />
+        </div>
+    </div>
+
+    <div class="form-group">
         <label> Salary </label>
         <div>
             <InputNumber @bind-Value="@jobpost.Salary" class="form-control" />
@@ -32,13 +40,15 @@
             <ValidationMessage For="@(()=>jobpost.Benefits)" />
         </div>
     </div>
+
     <div class="form-group">
-        <label> Benefits </label>
+        <label> Responsiblity</label>
         <div>
-            <InputNumber @bind-Value="@jobpost.NumberOfMonths" class="form-control" />
-            <ValidationMessage For="@(()=>jobpost.Benefits)" />
+            <InputText @bind-Value="@jobpost.Responsiblity" class="form-control" />
+            <ValidationMessage For="@(()=>jobpost.Responsiblity)" />
         </div>
     </div>
+
 
     @if (!Disabled)
     {

@@ -2,6 +2,7 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize] 
+@implements IDisposable
 
 <h3 class="card-title">Job Review</h3>
 <br />
@@ -17,7 +18,7 @@
  <div class=" alert alert-info">Loading reviews</div>
 }
 else 
-{ <table class="table table-responsive">
+{ <table class="table table-responsive" >
 	<thead>
 		<tr>
 			<th>Review ID</th>
@@ -62,6 +63,19 @@ else
     {
         Reviews = await _client.GetFromJsonAsync<List<Review>>($"{Endpoint.ReviewEndpoint}");
     }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#reviewTable");
+
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#reviewTable");
+    }
+
+
     async Task Delete(int reviewID)
     {
         var review = Reviews.First(q => q.Id == reviewID);

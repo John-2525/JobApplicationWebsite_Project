@@ -4,7 +4,7 @@
 @attribute [Authorize]
 @inject HttpInterceptorService _interceptor
 @implements IDisposable
-@using JobApplicationWebsite_Project.Shared.Domain;
+
 
 <h3 class="card-title">Job Search</h3>
 <br />
@@ -24,12 +24,13 @@ else
 	<table class="table table-responsive">
 		<thead>
 			<tr>
-				<th>Job Listing</th>
+				<th>Id</th>
 				<th>Number Of Years</th>
+				<th>Number Of Months</th>
 				<th>Salary</th>
 				<th>Position</th>
-				<th>Benefits</th>
-				<th>Action</th>
+				<th>Responsibilty</th>
+				<th>benefits</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,8 +39,10 @@ else
 				<tr>
 					<td>@jobPost.Id</td>
 					<td>@jobPost.NumberOfYears</td>
+					<td>@jobPost.NumberOfMonths</td>
 					<td>@jobPost.Salary</td>
 					<td>@jobPost.Position</td>
+					<td>@jobPost.Responsiblity</td>
 					<td>@jobPost.Benefits</td>
 
 					<td>
@@ -61,28 +64,37 @@ else
 }
 
 @code {
-	private List<JobPosting> JobPostings;
+    private List<JobPosting> JobPostings;
 
-	protected async override Task OnInitializedAsync()
-	{
-		_interceptor.MonitorEvent();
-		JobPostings = await _client.GetFromJsonAsync<List<JobPosting>>($"{Endpoint.JobPostingEndpoint}");
-	}
+    protected async override Task OnInitializedAsync()
+    {
+        _interceptor.MonitorEvent();
+        JobPostings = await _client.GetFromJsonAsync<List<JobPosting>>($"{Endpoint.JobPostingEndpoint}");
+    }
 
-	async Task Delete(int jobpostingsId)
-	{
-		var jobpostings = JobPostings.First(q => q.Id == jobpostingsId);
-		var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {jobpostings.Id}? ");
-		if (confirm)
-		{
-			await _client.DeleteAsync($"{Endpoint.JobPostingEndpoint}/{jobpostingsId}");
-			await OnInitializedAsync();
-		}
-	}
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#JPtable");
 
-	public void Dispose()
-	{
-		_interceptor.DisposeEvent();
-	}
+    }
 
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#JPtable");
+        
+    }
+
+
+    async Task Delete(int jobpostingsId)
+    {
+        var jobpostings = JobPostings.First(q => q.Id == jobpostingsId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {jobpostings.Id}? ");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{Endpoint.JobPostingEndpoint}/{jobpostingsId}");
+            await OnInitializedAsync();
+        }
+    }
+
+    
 }
