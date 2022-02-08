@@ -1,0 +1,53 @@
+﻿@page "/companyinfo/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+@inject HttpInterceptorService _interceptor
+
+
+
+
+@if (Companys == null)
+{
+    <div class="alert alert-info"> Loading Companys...</div>
+}
+else
+{
+    <table class="table table-responsive" >
+        <thead>
+            <tr>
+
+                <th>Company Name</th>
+                <th>Company Descriptions</th>
+                <th>Company Posted Job's ID</th>
+                <th></th>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var companys in Companys)
+            {
+                <tr>
+                    <td>@companys.CompanyName</td>
+                    <td>@companys.Description</td>
+                    <td>@companys.PostingID</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+
+
+@code {
+    private List<Company> Companys;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
+    }
+
+}
