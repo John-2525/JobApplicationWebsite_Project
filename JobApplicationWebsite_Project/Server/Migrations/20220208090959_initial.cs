@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JobApplicationWebsite_Project.Server.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -412,8 +412,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Mastery", "SkillName", "UpdatedBy", "YearsofExperience" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(251), new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(260), "novice", "baking", "System", 3 },
-                    { 2, "System", new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(265), new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(266), "expert", "Fixing", "System", 10 }
+                    { 1, "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4512), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4519), "novice", "baking", "System", 3 },
+                    { 2, "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4523), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4524), "expert", "Fixing", "System", 10 }
                 });
 
             migrationBuilder.InsertData(
@@ -421,9 +421,11 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "Benefits", "CreatedBy", "DateCreated", "DateUpdated", "NumberOfMonths", "NumberOfYears", "Position", "Responsiblity", "Salary", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "Health Insurance , Paid time off , Life inusrance", "System", new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2603), new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2612), 3, 2, "Digital Media Production Assistant", "Assist with all social media department logistics such as platform scheduling, copywriting, content calendar reviews, and posting support.Assist with production of social content shoots  including being on - set for photo and video shoots supporting where necessary", 2500, "System" },
-                    { 2, "Mental Health Benfits , Flexible work arrangements", "System", new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2617), new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2619), 1, 2, "Office Administrator", "Independently run the office space on a day-to-day basis to ensure smooth operations,Attend to incoming calls via the main phone line via a mobile application ,Liaise with appointed vendors and building management to perform regular routine office ", 2800, "System" },
-                    { 3, "Paid time off", "System", new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2622), new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2623), 0, 3, "Delivery Driver", "Loading up and counting of stocks before going out for delivery and counting balance of stocks when deliveries are done, place balance of stocks back intofactory's chillers at the end of the day. Main delivery route will be to NTUC and Giant outlets.", 2600, "System" }
+                    { 1, "Health Insurance , Paid time off , Life inusrance", "System", new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6288), new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6296), 3, 2, "Digital Media Production Assistant", "Assist with all social media department logistics such as platform scheduling, copywriting, content calendar reviews, and posting support.Assist with production of social content shoots  including being on - set for photo and video shoots supporting where necessary", 2500, "System" },
+                    { 5, "Health insurance.", null, new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6310), new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6309), 0, 3, "Accounts​/Senior Accounts Executive", "prepare the statement of accounts, balance sheet, reconciliations, preparing and posting of month end journals, processing payments and working closely with both internal and external stakeholders on accounting, reconciliation and treasury related matters.", 3500, null },
+                    { 4, "Paid time off", "System", new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6306), new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6307), 4, 2, "Sales & Marketing Executive", "Sales pitching, create awareness for prospect vie all possible avenue, Analysing of vehicle trends from all avenues, but not limited to, SGCM, personal social circle,Price monitoring/comparison from competitors and/or owners;", 6000, "System" },
+                    { 3, "Paid time off", "System", new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6303), new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6304), 0, 3, "Delivery Driver", "Loading up and counting of stocks before going out for delivery and counting balance of stocks when deliveries are done, place balance of stocks back intofactory's chillers at the end of the day. Main delivery route will be to NTUC and Giant outlets.", 2600, "System" },
+                    { 2, "Mental Health Benfits , Flexible work arrangements", "System", new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6300), new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6301), 1, 2, "Office Administrator", "Independently run the office space on a day-to-day basis to ensure smooth operations,Attend to incoming calls via the main phone line via a mobile application ,Liaise with appointed vendors and building management to perform regular routine office ", 2800, "System" }
                 });
 
             migrationBuilder.InsertData(
@@ -431,9 +433,9 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "Certificates", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Education", "School", "UpdatedBy", "UserId", "User_Name" },
                 values: new object[,]
                 {
-                    { 1, "Profesional ceritication of professional Achievment in Digital Media", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Degree of  BSc Digital Media ", "Singapore of Social Science", null, null, "Luong Hao Wen" },
-                    { 2, "Food Hygiene certificate , MITx Manufacturing Program ", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Diploma in Food Science", "Singapore Polytechnic", null, null, "Dai Koi Yim" },
-                    { 3, "Certificate of High Achievment in 3D modelling", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Higher Nitec in Electronics", "ITE Central", null, null, "Danial bin Sulfian" }
+                    { 3, "Certificate of High Achievment in 3D modelling", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "", "Higher Nitec in Electronics", "ITE Central", null, null, "Danial bin Sulfian" },
+                    { 2, "Food Hygiene certificate , MITx Manufacturing Program ", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "https://196034-584727-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2018/01/Electrician-Resume-723x1024.jpg", "Diploma in Food Science", "Singapore Polytechnic", null, null, "Dai Koi Yim" },
+                    { 1, "Profesional ceritication of professional Achievment in Digital Media", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "https://resumegenius.com/wp-content/uploads/2019/07/Hostess-Resume-Sample-Template.png ", "Degree of  BSc Digital Media ", "Singapore of Social Science", null, null, "Luong Hao Wen" }
                 });
 
             migrationBuilder.InsertData(
@@ -441,8 +443,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "Address", "Age", "CreatedBy", "DateCreated", "DateUpdated", "Name", "Password", "UpdatedBy", "UserName" },
                 values: new object[,]
                 {
-                    { 1, "126@gmail.com", 23, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Lonk How Wank", "Password1", null, "username111" },
-                    { 2, "127@gmail.com", 23, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ngiam Fabian", "Password2", null, "username222" }
+                    { 2, "127@gmail.com", 23, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ngiam Fabian", "Password2", null, "username222" },
+                    { 1, "126@gmail.com", 23, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Lonk How Wank", "Password1", null, "username111" }
                 });
 
             migrationBuilder.InsertData(
@@ -450,9 +452,12 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "CompanyName", "CreatedBy", "DateCreated", "DateUpdated", "Description", "HRStaffID", "JobPostingId", "PostingID", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "LGA TELECOM PTE LTD", "System", new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5326), new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5335), "As one of the industry’s digital pioneers, LGA has been helping shape Singapore’s digital ecosystem since 1995, starting first as a Digital Service Provider to now providing full digital solutions for businesses throughout Singapore.", 1, null, 1, "System" },
-                    { 2, "ALVAS FOOD MANUFACTURE PTE LTD", "System", new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5341), new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5342), "ALVAS FOOD MANUFACTURE PTE. LTD. is located in Singapore, Singapore and is part of the Dairy Product Manufacturing Industry. ALVAS FOOD MANUFACTURE PTE. LTD. has 8 total employees across all of its locations. (Employees figure is modelled).", 2, null, 2, "System" },
-                    { 3, "ADECCO PERSONNEL PTE LTD", "System", new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5345), new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5346), "For more than 35 years, Adecco provides a comprehensive array of HR solutions and consulting services which includes mid to staff level talentacquisition, contract recruitment, outsourcing, field sales and marketing as well as payroll services.Our expertise includes accounting & finance, admin & secretarial, banking, digital & eCommerce. ", 3, null, 3, "System" }
+                    { 6, "Daiso", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(675), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(676), "Daiso Industries Co., Ltd. is a large franchise of 100-yen shops founded in Japan. The headquarters are in Higashihiroshima, Hiroshima Prefecture. Daiso has a range of over 100,000 products, of which over 40 percent are imported goods, many of them from China, South Korea, and Japan.", 6, null, 6, "System" },
+                    { 5, "Spotify", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(672), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(673), "Spotify is a Swedish audio streaming and media services provider founded on 23 April 2006 by Daniel Ek and Martin Lorentzon. It is one of the largest music streaming service providers with over 406 million monthly active users, including 180 million paying subscribers, as of December 2021", 5, null, 5, "System" },
+                    { 4, "Popular Holdings", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(669), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(670), "Popular Holdings Limited, more commonly known as just Popular or colloquially as the Popular Bookstore, is a Singaporean multinational bookstore chain. Aside from Singapore, it also has subsidiaries in countries such as Canada, China, Malaysia and the United Kingdom.", 4, null, 4, "System" },
+                    { 3, "ADECCO PERSONNEL PTE LTD", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(666), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(667), "For more than 35 years, Adecco provides a comprehensive array of HR solutions and consulting services which includes mid to staff level talentacquisition, contract recruitment, outsourcing, field sales and marketing as well as payroll services.Our expertise includes accounting & finance, admin & secretarial, banking, digital & eCommerce. ", 3, null, 3, "System" },
+                    { 2, "ALVAS FOOD MANUFACTURE PTE LTD", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(663), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(664), "ALVAS FOOD MANUFACTURE PTE. LTD. is located in Singapore, Singapore and is part of the Dairy Product Manufacturing Industry. ALVAS FOOD MANUFACTURE PTE. LTD. has 8 total employees across all of its locations. (Employees figure is modelled).", 2, null, 2, "System" },
+                    { 1, "LGA TELECOM PTE LTD", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(651), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(658), "As one of the industry’s digital pioneers, LGA has been helping shape Singapore’s digital ecosystem since 1995, starting first as a Digital Service Provider to now providing full digital solutions for businesses throughout Singapore.", 1, null, 1, "System" }
                 });
 
             migrationBuilder.InsertData(
@@ -460,8 +465,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "Comment", "CreatedBy", "DateCreated", "DateUpdated", "JobPostingID", "UpdatedBy", "UserNameId", "UserResume", "User_Name" },
                 values: new object[,]
                 {
-                    { 1, "very good", "System", new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5621), new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5630), 1, "System", null, "", "Luong Hao Wen" },
-                    { 2, "very good", "System", new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5635), new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5637), 2, "System", null, "Very good at comptur mr ngiam", "Yew Yong Chank" }
+                    { 1, "very good", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9256), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9262), 1, "System", null, "", "Luong Hao Wen" },
+                    { 2, "very good", "System", new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9266), new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9267), 2, "System", null, "Very good at comptur mr ngiam", "Yew Yong Chank" }
                 });
 
             migrationBuilder.InsertData(
@@ -469,8 +474,11 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "JobPostingID", "Rating", "ReviewComment", "UpdatedBy", "UserNameId", "User_Name" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2022, 2, 5, 18, 20, 0, 24, DateTimeKind.Local).AddTicks(3282), new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(6750), 1, 3, "As soon as COVID-19 was getting serious, Indeed was one of the first companies to implement a mandatory work-from-home policy. Our healthy and safety came first, and I felt so lucky our company had the opportunity to make that decision. Since the WFH policy, our CEO, COO, and SVP of HR have been INCREDIBLE with transparency, being here for us and communicating to us more than I've ever seen.", "System", null, "Jim Jimson" },
-                    { 2, "System", new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(8110), new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(8118), 2, 4, "We have unlimited PTO, and we are encouraged to take it. 401K match up to 3%. Great healthcare plan. Our NYC office is beautiful with fully stocked drinks and snacks. There's a gym and multiple terraces.  We have company happy hours once a month and our holiday parties are OUTSTANDING. ", "System", null, "Danial Bin Sulfian" }
+                    { 1, "System", new DateTime(2022, 2, 8, 17, 9, 59, 17, DateTimeKind.Local).AddTicks(547), new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(2263), 1, 3, "As soon as COVID-19 was getting serious, Indeed was one of the first companies to implement a mandatory work-from-home policy. Our healthy and safety came first, and I felt so lucky our company had the opportunity to make that decision. Since the WFH policy, our CEO, COO, and SVP of HR have been INCREDIBLE with transparency, being here for us and communicating to us more than I've ever seen.", "System", null, "Jim Jimson" },
+                    { 2, "System", new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3205), new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3210), 2, 4, "We have unlimited PTO, and we are encouraged to take it. 401K match up to 3%. Great healthcare plan. Our NYC office is beautiful with fully stocked drinks and snacks. There's a gym and multiple terraces.  We have company happy hours once a month and our holiday parties are OUTSTANDING. ", "System", null, "Danial Bin Sulfian" },
+                    { 3, "System", new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3213), new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3213), 2, 4, "Management tries to be inclusive and they provide training to ensure that employees are inclusive as they go about their work. The work can be challenging, and depending on your department, employees get lots of support. ", "System", null, "Yew Yong Chang" },
+                    { 4, "System", new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3216), new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3217), 2, 4, "Company tries to be inclusive and they provide training to ensure that employees are inclusive as they go about their work. The work can be challenging, and depending on your department, employees get lots of support. ", "System", null, "Yew Yong Chang" },
+                    { 5, "System", new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3219), new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3220), 2, 2, "Since being remote the communication is horrible! If your supervisor doesn’t know, you will be lost! The other supervisors take forever to respond because they have their own team to help. Also the vibe, unless you are a TOP agent. They do NOT care about you.", "System", null, "Yeo Chen Si" }
                 });
 
             migrationBuilder.InsertData(
@@ -478,8 +486,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "IndividSkillsID", "JobPostingId", "PostingID", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6873), new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6883), 1, null, 1, "System" },
-                    { 2, "System", new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6887), new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6888), 2, null, 2, "System" }
+                    { 1, "System", new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9640), new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9646), 1, null, 1, "System" },
+                    { 2, "System", new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9649), new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9651), 2, null, 2, "System" }
                 });
 
             migrationBuilder.CreateIndex(

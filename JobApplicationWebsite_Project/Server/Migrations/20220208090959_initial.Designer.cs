@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobApplicationWebsite_Project.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220205102000_Initial")]
-    partial class Initial
+    [Migration("20220208090959_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -241,8 +241,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 1,
                             CompanyName = "LGA TELECOM PTE LTD",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5326),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5335),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(651),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(658),
                             Description = "As one of the industry’s digital pioneers, LGA has been helping shape Singapore’s digital ecosystem since 1995, starting first as a Digital Service Provider to now providing full digital solutions for businesses throughout Singapore.",
                             HRStaffID = 1,
                             PostingID = 1,
@@ -253,8 +253,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 2,
                             CompanyName = "ALVAS FOOD MANUFACTURE PTE LTD",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5341),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5342),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(663),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(664),
                             Description = "ALVAS FOOD MANUFACTURE PTE. LTD. is located in Singapore, Singapore and is part of the Dairy Product Manufacturing Industry. ALVAS FOOD MANUFACTURE PTE. LTD. has 8 total employees across all of its locations. (Employees figure is modelled).",
                             HRStaffID = 2,
                             PostingID = 2,
@@ -265,11 +265,47 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 3,
                             CompanyName = "ADECCO PERSONNEL PTE LTD",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5345),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 26, DateTimeKind.Local).AddTicks(5346),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(666),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(667),
                             Description = "For more than 35 years, Adecco provides a comprehensive array of HR solutions and consulting services which includes mid to staff level talentacquisition, contract recruitment, outsourcing, field sales and marketing as well as payroll services.Our expertise includes accounting & finance, admin & secretarial, banking, digital & eCommerce. ",
                             HRStaffID = 3,
                             PostingID = 3,
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanyName = "Popular Holdings",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(669),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(670),
+                            Description = "Popular Holdings Limited, more commonly known as just Popular or colloquially as the Popular Bookstore, is a Singaporean multinational bookstore chain. Aside from Singapore, it also has subsidiaries in countries such as Canada, China, Malaysia and the United Kingdom.",
+                            HRStaffID = 4,
+                            PostingID = 4,
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CompanyName = "Spotify",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(672),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(673),
+                            Description = "Spotify is a Swedish audio streaming and media services provider founded on 23 April 2006 by Daniel Ek and Martin Lorentzon. It is one of the largest music streaming service providers with over 406 million monthly active users, including 180 million paying subscribers, as of December 2021",
+                            HRStaffID = 5,
+                            PostingID = 5,
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CompanyName = "Daiso",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(675),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(676),
+                            Description = "Daiso Industries Co., Ltd. is a large franchise of 100-yen shops founded in Japan. The headquarters are in Higashihiroshima, Hiroshima Prefecture. Daiso has a range of over 100,000 products, of which over 40 percent are imported goods, many of them from China, South Korea, and Japan.",
+                            HRStaffID = 6,
+                            PostingID = 6,
                             UpdatedBy = "System"
                         });
                 });
@@ -311,8 +347,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(251),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(260),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4512),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4519),
                             Mastery = "novice",
                             SkillName = "baking",
                             UpdatedBy = "System",
@@ -322,8 +358,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(265),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(266),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4523),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(4524),
                             Mastery = "expert",
                             SkillName = "Fixing",
                             UpdatedBy = "System",
@@ -379,8 +415,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 1,
                             Comment = "very good",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5621),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5630),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9256),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9262),
                             JobPostingID = 1,
                             UpdatedBy = "System",
                             UserResume = "",
@@ -391,8 +427,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 2,
                             Comment = "very good",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5635),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 27, DateTimeKind.Local).AddTicks(5637),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9266),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 19, DateTimeKind.Local).AddTicks(9267),
                             JobPostingID = 2,
                             UpdatedBy = "System",
                             UserResume = "Very good at comptur mr ngiam",
@@ -447,8 +483,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 1,
                             Benefits = "Health Insurance , Paid time off , Life inusrance",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2603),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2612),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6288),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6296),
                             NumberOfMonths = 3,
                             NumberOfYears = 2,
                             Position = "Digital Media Production Assistant",
@@ -461,8 +497,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 2,
                             Benefits = "Mental Health Benfits , Flexible work arrangements",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2617),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2619),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6300),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6301),
                             NumberOfMonths = 1,
                             NumberOfYears = 2,
                             Position = "Office Administrator",
@@ -475,14 +511,40 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Id = 3,
                             Benefits = "Paid time off",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2622),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(2623),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6303),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6304),
                             NumberOfMonths = 0,
                             NumberOfYears = 3,
                             Position = "Delivery Driver",
                             Responsiblity = "Loading up and counting of stocks before going out for delivery and counting balance of stocks when deliveries are done, place balance of stocks back intofactory's chillers at the end of the day. Main delivery route will be to NTUC and Giant outlets.",
                             Salary = 2600,
                             UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Benefits = "Paid time off",
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6306),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6307),
+                            NumberOfMonths = 4,
+                            NumberOfYears = 2,
+                            Position = "Sales & Marketing Executive",
+                            Responsiblity = "Sales pitching, create awareness for prospect vie all possible avenue, Analysing of vehicle trends from all avenues, but not limited to, SGCM, personal social circle,Price monitoring/comparison from competitors and/or owners;",
+                            Salary = 6000,
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Benefits = "Health insurance.",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6310),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(6309),
+                            NumberOfMonths = 0,
+                            NumberOfYears = 3,
+                            Position = "Accounts​/Senior Accounts Executive",
+                            Responsiblity = "prepare the statement of accounts, balance sheet, reconciliations, preparing and posting of month end journals, processing payments and working closely with both internal and external stakeholders on accounting, reconciliation and treasury related matters.",
+                            Salary = 3500
                         });
                 });
 
@@ -536,7 +598,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Certificates = "Profesional ceritication of professional Achievment in Digital Media",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "",
+                            Description = "https://resumegenius.com/wp-content/uploads/2019/07/Hostess-Resume-Sample-Template.png ",
                             Education = "Degree of  BSc Digital Media ",
                             School = "Singapore of Social Science",
                             User_Name = "Luong Hao Wen"
@@ -547,7 +609,7 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                             Certificates = "Food Hygiene certificate , MITx Manufacturing Program ",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "",
+                            Description = "https://196034-584727-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2018/01/Electrician-Resume-723x1024.jpg",
                             Education = "Diploma in Food Science",
                             School = "Singapore Polytechnic",
                             User_Name = "Dai Koi Yim"
@@ -612,8 +674,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 24, DateTimeKind.Local).AddTicks(3282),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(6750),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 17, DateTimeKind.Local).AddTicks(547),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(2263),
                             JobPostingID = 1,
                             Rating = 3,
                             ReviewComment = "As soon as COVID-19 was getting serious, Indeed was one of the first companies to implement a mandatory work-from-home policy. Our healthy and safety came first, and I felt so lucky our company had the opportunity to make that decision. Since the WFH policy, our CEO, COO, and SVP of HR have been INCREDIBLE with transparency, being here for us and communicating to us more than I've ever seen.",
@@ -624,13 +686,49 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(8110),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 25, DateTimeKind.Local).AddTicks(8118),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3205),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3210),
                             JobPostingID = 2,
                             Rating = 4,
                             ReviewComment = "We have unlimited PTO, and we are encouraged to take it. 401K match up to 3%. Great healthcare plan. Our NYC office is beautiful with fully stocked drinks and snacks. There's a gym and multiple terraces.  We have company happy hours once a month and our holiday parties are OUTSTANDING. ",
                             UpdatedBy = "System",
                             User_Name = "Danial Bin Sulfian"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3213),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3213),
+                            JobPostingID = 2,
+                            Rating = 4,
+                            ReviewComment = "Management tries to be inclusive and they provide training to ensure that employees are inclusive as they go about their work. The work can be challenging, and depending on your department, employees get lots of support. ",
+                            UpdatedBy = "System",
+                            User_Name = "Yew Yong Chang"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3216),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3217),
+                            JobPostingID = 2,
+                            Rating = 4,
+                            ReviewComment = "Company tries to be inclusive and they provide training to ensure that employees are inclusive as they go about their work. The work can be challenging, and depending on your department, employees get lots of support. ",
+                            UpdatedBy = "System",
+                            User_Name = "Yew Yong Chang"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3219),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 18, DateTimeKind.Local).AddTicks(3220),
+                            JobPostingID = 2,
+                            Rating = 2,
+                            ReviewComment = "Since being remote the communication is horrible! If your supervisor doesn’t know, you will be lost! The other supervisors take forever to respond because they have their own team to help. Also the vibe, unless you are a TOP agent. They do NOT care about you.",
+                            UpdatedBy = "System",
+                            User_Name = "Yeo Chen Si"
                         });
                 });
 
@@ -675,8 +773,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6873),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6883),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9640),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9646),
                             IndividSkillsID = 1,
                             PostingID = 1,
                             UpdatedBy = "System"
@@ -685,8 +783,8 @@ namespace JobApplicationWebsite_Project.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6887),
-                            DateUpdated = new DateTime(2022, 2, 5, 18, 20, 0, 28, DateTimeKind.Local).AddTicks(6888),
+                            DateCreated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9649),
+                            DateUpdated = new DateTime(2022, 2, 8, 17, 9, 59, 20, DateTimeKind.Local).AddTicks(9651),
                             IndividSkillsID = 2,
                             PostingID = 2,
                             UpdatedBy = "System"
