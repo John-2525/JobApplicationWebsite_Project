@@ -35,7 +35,7 @@ else
 			@foreach (var companys in Companys)
 			{
 				<tr>
-					<td> @companys.CompanyName</td>
+					<td>@companys.CompanyName</td>
 					<td>@companys.Description</td>
 					<td>@companys.PostingID</td>
 					<td>
@@ -58,32 +58,35 @@ else
 }
 
 @code {
-    private List<Company> Companys;
-    protected async override Task OnInitializedAsync()
-    {
-        Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
-    }
+	private List<Company> Companys;
 
-    protected async override Task OnAfterRenderAsync(bool firstRender)
-    {
-        await js.InvokeVoidAsync("AddDataTable", "#companyTable");
+	protected async override Task OnInitializedAsync()
+	{
+		Companys = await _client.GetFromJsonAsync<List<Company>>($"{Endpoint.CompanyEndpoint}");
+	}
 
-    }
 
-    public void Dispose()
-    {
-        js.InvokeVoidAsync("DataTablesDispose", "#companyTable");
-    }
+	async Task Delete(int companysId)
+	{
+		var companys = Companys.First(q => q.Id == companysId);
+		var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {companys.CompanyName}? ");
+		if (confirm)
+		{
+			await _client.DeleteAsync($"{Endpoint.CompanyEndpoint}/{companysId}");
+			await OnInitializedAsync();
+		}
+	}
 
-    async Task Delete(int companysId)
-    {
-        var companys = Companys.First(q => q.Id == companysId);
-        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {companys.CompanyName}? ");
-        if (confirm)
-        {
-            await _client.DeleteAsync($"{Endpoint.CompanyEndpoint}/{companysId}");
-            await OnInitializedAsync();
-        }
-    }
+	protected async override Task OnAfterRenderAsync(bool firstrender)
+	{
+
+		await js.InvokeVoidAsync("AddDataTable", "#companyTable");
+
+	}
+
+	public void Dispose()
+	{
+		js.InvokeVoidAsync("DataTablesDispose", "#companyTable");
+	}
 
 }
