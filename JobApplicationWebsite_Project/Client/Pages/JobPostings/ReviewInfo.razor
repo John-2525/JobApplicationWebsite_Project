@@ -1,0 +1,55 @@
+﻿@page "/ReviewInfo/{id:int}"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+@inject HttpInterceptorService _interceptor
+
+
+@if (Reviews == null)
+{
+    <div class="alert alert-info"> Loading Reviews...</div>
+}
+else
+{
+    <table class="table table-responsive">
+        <thead>
+			<tr>
+
+				<th>Review ID</th>
+				<th>Comment</th>
+				<th>Rating</th>
+				<th>User Name</th>
+
+			</tr>
+
+        </thead>
+		<tbody>
+			@foreach (var review in Reviews)
+			{
+				@if (review.JobPostingID == id)
+				{
+			<tr>
+				<td>@review.Id</td>
+				<td>@review.ReviewComment</td>
+				<td>@review.Rating</td>
+				<td>@review.User_Name</td>
+			</tr>
+				}
+			}
+		</tbody>
+
+    </table>
+}
+
+
+
+@code {
+	[Parameter] public int id { get; set; }
+	private List<Review> Reviews;
+
+	protected async override Task OnInitializedAsync()
+	{
+		Reviews = await _client.GetFromJsonAsync<List<Review>>($"{Endpoint.ReviewEndpoint}");
+	}
+
+}

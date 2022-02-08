@@ -35,37 +35,43 @@ else
 				<th>Benefits</th>
 				<th>Actions</th>
 				<th>Company Info</th>
+				<th>Review Info</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var jobPost in JobPostings ) 
 			{
-				<tr>
-					<td>@jobPost.Id</td>
-					<td>@jobPost.NumberOfYears</td>
-					<td>@jobPost.NumberOfMonths</td>
-					<td>@jobPost.Salary</td>
-					<td>@jobPost.Position</td>
-					<td>@jobPost.Responsiblity</td>
-					<td>@jobPost.Benefits</td>
+			<tr>
+				<td>@jobPost.Id</td>
+				<td>@jobPost.NumberOfYears</td>
+				<td>@jobPost.NumberOfMonths</td>
+				<td>@jobPost.Salary</td>
+				<td>@jobPost.Position</td>
+				<td>@jobPost.Responsiblity</td>
+				<td>@jobPost.Benefits</td>
 
-					<td>
-						<a href="/JobPostings/view/@jobPost.Id" class="btn btn-primary">
-							<span class="oi oi-book"></span>
-						</a>
-						<a href="/JobPostings/edit/@jobPost.Id" class="btn btn-warning">
-							<span class="oi oi-pencil"></span>
-						</a>
-						<button class="btn btn-danger" @onclick="@(()=>Delete(jobPost.Id))">
-							<span class="oi oi-delete"></span>
-						</button>
-					</td>
-					<td>
-						<a href="/Companyinfo/@jobPost.Id" class="btn btn-info">
-							<span class="oi oi-info"></span>
-						</a>
-					</td>
-				</tr>
+				<td>
+					<a href="/JobPostings/view/@jobPost.Id" class="btn btn-primary">
+						<span class="oi oi-book"></span>
+					</a>
+					<a href="/JobPostings/edit/@jobPost.Id" class="btn btn-warning">
+						<span class="oi oi-pencil"></span>
+					</a>
+					<button class="btn btn-danger" @onclick="@(()=>Delete(jobPost.Id))">
+						<span class="oi oi-delete"></span>
+					</button>
+				</td>
+				<td>
+					<a href="/Companyinfo/@jobPost.Id" class="btn btn-info">
+						<span class="oi oi-info"></span>
+					</a>
+				</td>
+				<td>
+					<a href="/Reviewinfo/@jobPost.Id" class="btn btn-info">
+						<span class="oi oi-info"></span>
+					</a>
+				</td>
+			</tr>
 			}
 		</tbody>
 	</table>
