@@ -1,46 +1,60 @@
 ﻿<EditForm Model="@resume" OnValidSubmit="@OnValidSubmit">
-	<DataAnnotationsValidator />
-	<ValidationSummary />
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
 
-	<div class="form-group">
-		<label> Education </label>
-		<div>
-			<InputText @bind-Value="@resume.Education" class="form-control" />
-			<ValidationMessage For="@(()=>resume.Education)" />
-		</div>
-	</div>
+    <div class="form-group">
+        <label> Education </label>
+        <div>
+            <InputText @bind-Value="@resume.Education" class="form-control" />
+            <ValidationMessage For="@(()=>resume.Education)" />
+        </div>
+    </div>
 
-	<div class="form-group">
-		<label> Certificates </label>
-		<div>
-			<InputText @bind-Value="@resume.Certificates" class="form-control" />
-			<ValidationMessage For="@(()=>resume.Certificates)" />
-		</div>
-	</div>
-	<div class="form-group">
-		<label> Description </label>
-		<div>
-			<InputText @bind-Value="@resume.Description" class="form-control" />
-			<ValidationMessage For="@(()=>resume.Description)" />
-		</div>
-	</div>
-	<div class="form-group">
-		<label> User Name </label>
-		<div>
-			<InputText @bind-Value="@resume.User_Name" class="form-control" />
-			<ValidationMessage For="@(()=>resume.User_Name)" />
-		</div>
-	</div>
+    <div class="form-group">
+        <label> School </label>
+        <div>
+            <InputText @bind-Value="@resume.School" class="form-control" />
+            <ValidationMessage For="@(()=>resume.Education)" />
+        </div>
+    </div>
+
+    
 
 
-	@if (!Disabled)
-	{
-		<button type="submit" class="btn btn-success btn-block">
-			@ButtonText
-		</button>
-	}
-	<BackToList Target="resumes" />
+
+
+
+    <div class="form-group">
+        <label> Certificates </label>
+        <div>
+            <InputText @bind-Value="@resume.Certificates" class="form-control" />
+            <ValidationMessage For="@(()=>resume.Certificates)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label> Description </label>
+        <div>
+            <InputText @bind-Value="@resume.Description" class="form-control" />
+            <ValidationMessage For="@(()=>resume.Description)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label> User Name </label>
+        <div>
+            <InputText @bind-Value="@resume.User_Name" class="form-control" />
+            <ValidationMessage For="@(()=>resume.User_Name)" />
+        </div>
+    </div>
+
+
+    @if (!Disabled)
+    {
+        <button type="submit" class="btn btn-success btn-block">
+            @ButtonText
+        </button>
+    }
+    <BackToList Target="resumes" />
 </EditForm>
 
 @code {
